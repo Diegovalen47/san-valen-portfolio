@@ -1,8 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import type { languagesList } from '../i18n/ui';
-import { useTranslations } from '../i18n/utils';
+import { getLangFromUrl } from '../i18n/utils';
 
 interface Props {
 	title: string;
@@ -10,13 +9,11 @@ interface Props {
 
 const { title } = Astro.props;
 
-const currentLang = Astro.currentLocale || 'es';
-
-const translateLabels = useTranslations(currentLang as keyof typeof languagesList)
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={currentLang}>
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />

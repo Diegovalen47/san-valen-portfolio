@@ -1,21 +1,33 @@
-export const languagesList = {
+export const languages = {
   es: 'Español',
   en: 'English',
 };
 
-export const labels = {
+export const defaultLang = 'en';
+
+export const ui = {
   es: {
-    'nav.home': 'Inicio',
     'nav.about': 'Sobre mí',
+    'nav.experience': 'Experiencia',
     'nav.projects': 'Proyectos',
     'nav.contact': 'Contacto',
-    'home.title': 'Bienvenido a mi portfolio.',
+    'hero.title': 'Hey, Soy Valentín',
+    'hero.experience': '+3 años de experiencia',
+    'hero.role': 'Desarrollador Frontend (Vue.js & React.js)',
+    'hero.description': 'Experto en crear aplicaciones únicas desde cero hasta producción.',
+    'hero.actions.view_cv': 'Ver CV',
+    'hero.actions.contact_me': 'Contactarme',
   },
   en: {
-    'nav.home': 'Home',
     'nav.about': 'About',
+    'nav.experience': 'Experience',
     'nav.projects': 'Projects',
     'nav.contact': 'Contact',
-    'home.title': 'Welcome to my portfolio.',
+    'hero.title': 'Hey, I\'m Valentín',
+    'hero.experience': '+3 years of experience',
+    'hero.role': 'Frontend Developer (Vue.js & React.js)',
+    'hero.description': 'Expert in creating unique applications from scratch to production.',
+    'hero.actions.view_cv': 'View CV',
+    'hero.actions.contact_me': 'Contact me',
   },
 };
