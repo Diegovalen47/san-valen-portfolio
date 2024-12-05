@@ -1,5 +1,14 @@
-<section class="bg-white dark:bg-gray-900 w-full">
-  <div class="bg-white dark:bg-gray-900 py-8 px-8 mx-auto max-w-screen-xl">
-    <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Skills</h2>
+---
+import type { languages } from '../../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang as keyof typeof languages)
+--- 
+
+<section class="bg-gray-100 dark:bg-gray-800  w-full">
+  <h2 class="text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-white mx-auto max-w-screen-xl py-8 px-4">{t('nav.skills')}</h2>
+  <div class="bg-gray-100 dark:bg-gray-800  py-8 px-8 mx-auto max-w-screen-xl">
+    content
   </div>
 </section>
