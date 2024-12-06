@@ -4,6 +4,7 @@ import Github from '../icons/Github.astro';
 import Linkedin from '../icons/Linkedin.astro';
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import SanValenMemoji from '../../assets/san_valen_memoji.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
@@ -48,7 +49,7 @@ const curriculumLink = 'https://drive.google.com/file/d/1QeqQMzqUihXmBbwMHHkjb8Y
           </a>
       </div>
     </div>
-    <img src="/public/san_valen_memoji.png" alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 order-1 md:order-2 w-[150px] md:w-[330px] h-auto object-cover" />
+    <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 order-1 md:order-2 w-[150px] md:w-[330px] h-auto object-cover" />
   </div>
   <div class="py-8 px-8 mx-auto max-w-screen-xl flex justify-center">
     <a href="#experience" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-2xl  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
