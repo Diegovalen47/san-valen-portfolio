@@ -8,30 +8,33 @@ const t = useTranslations(lang as keyof typeof languages)
 
 const experiences = [
   {
+    link: "https://apside.cl/",
     title: t('experiences.apside'),
     time: t('experiences.apside.time'),
     description: t('experiences.apside.description'),
-    technologies: "Vue.js 2/3, Pinia, Vuex, AWS(CodePipeline, CodeBuild, EC2, Lambda), TypeScript, SSO, Docker, GCP.",
+    technologies: ["Vue.js 2/3", "Pinia", "Vuex", "AWS CodePipeline", "AWS CodeBuild", "AWS EC2", "AWS Lambda", "AWS DynamoDB", "TanStack Query", "TypeScript", "JavaScript", "SSO", "Docker", "GCP"],
     isLatest: true,
   },
   {
+    link: "https://drive.google.com/file/d/1fkq3XdeE3V7dPMRkug4VwtYfPdS1IlPh/view?usp=sharing",
     title: t('experiences.un'),
     time: t('experiences.un.time'),
     description: t('experiences.un.description'),
-    technologies: "AWS, Figma, Clean Architecture, Design Patterns, Vue.js.",
+    technologies: ["AWS", "Figma", "Clean Architecture", "Design Patterns", "Vue.js", "Flutter", "Django", "PostgreSQL"],
     isLatest: false,
   },
   {
+    link: "https://unergy.io/",
     title: t('experiences.unergy'),
     time: t('experiences.unergy.time'),
     description: t('experiences.unergy.description'),
-    technologies: "Vue.js 2/3, Nuxt.js, Vuex, Pinia, JWT, NPM, JavaScript, Websockets, Git, APIs, HTML, CSS, SASS.",
+    technologies: ["Vue.js 2/3", "Nuxt.js", "Vuex", "Pinia", "JWT", "NPM", "JavaScript", "Websockets", "Git", "APIs", "HTML", "CSS", "SASS"],
     isLatest: false,
   },
 ]
 ---
 
-<section id="experience" class="bg-gray-100 dark:bg-gray-800 w-full">
+<section id="experience" class="bg-gray-100 dark:bg-gray-800 w-full py-14">
   <h2 class="text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-white mx-auto max-w-screen-xl py-8 px-4">{t('nav.experience')}</h2>
   <div class="bg-gray-100 dark:bg-gray-800 py-8 px-8 mx-auto max-w-screen-xl">
     <ol class="relative border-s border-gray-200 dark:border-gray-700">

@@ -1,0 +1,41 @@
+---
+import ProjectCardCarousel from './ProjectCardCarousel.astro';
+import LinkIcon from '../icons/LinkIcon.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import type { languages } from '../../i18n/ui';
+import TecnologiesList from '../TecnologiesList.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang as keyof typeof languages)
+
+const { images, title, description, link, codeLink, technologies, time } = Astro.props;
+---
+
+<li>
+  <article class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 dark:bg-gray-800 min-h-full">
+    <ProjectCardCarousel images={images} />
+    <div class="flex flex-col justify-between p-4 leading-normal flex-grow">
+      <div>
+        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white flex flex-row gap-1 items-center">
+          {title}
+          <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
+            <a href={link} target="_blank">
+              <LinkIcon />
+            </a>
+            <span class="sr-only">Link to the project</span>
+          </div>
+        </h5>
+        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{time}</time>
+        <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400 md:max-w-[90%]">{description}</p>
+      </div>
+      <div>        
+        <TecnologiesList technologies={technologies} />
+        <div class="flex flex-row justify-end">
+          <a href={codeLink} target="_blank" class="text-right underline text-gray-400 dark:text-gray-500">
+            {t('projects.see_code')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</li>

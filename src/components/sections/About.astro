@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 ---
 
-<section id="about" class="bg-white dark:bg-gray-900 w-full">
+<section id="about" class="bg-white dark:bg-gray-900 w-full py-14">
   <h2 class="text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-white mx-auto max-w-screen-xl py-8 px-4">{t('nav.about')}</h2>
   <div class="bg-white dark:bg-gray-900 py-8 px-8 mx-auto max-w-screen-xl">
     content

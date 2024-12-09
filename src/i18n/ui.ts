@@ -1,5 +1,5 @@
 import { experiences } from './translations/experiences';
-
+import { projects } from './translations/projects';
 export const languages = {
   es: 'Español',
   en: 'English',
@@ -21,6 +21,7 @@ export const ui = {
     'hero.actions.view_cv': 'Ver CV',
     'hero.actions.contact_me': 'Contactarme',
     ...experiences.es,
+    ...projects.es,
   },
   en: {
     'nav.about': 'About',
@@ -35,5 +36,6 @@ export const ui = {
     'hero.actions.view_cv': 'View CV',
     'hero.actions.contact_me': 'Contact me',
     ...experiences.en,
+    ...projects.en,
   },
 };

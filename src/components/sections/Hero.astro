@@ -4,15 +4,15 @@ import Github from '../icons/Github.astro';
 import Linkedin from '../icons/Linkedin.astro';
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
-import SanValenMemoji from '../../assets/san_valen_memoji.png';
+import SanValenMemoji from '../../assets/san_valen_memoji.webp';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 const curriculumLink = 'https://drive.google.com/file/d/1QeqQMzqUihXmBbwMHHkjb8YDQ-rSfTiI/view?usp=sharing';
 ---
 
-<section class="bg-white dark:bg-gray-900">
-  <div class="mx-auto max-w-screen-xl py-8 px-4 lg:pt-36 flex flex-col md:flex-row">
+<section class="bg-white dark:bg-gray-900 pt-14">
+  <div class="mx-auto max-w-screen-xl py-8 px-4 pt-36 flex flex-col md:flex-row">
     <div class="w-full md:w-7/12 order-2 md:order-1">
         <h1 class="text-center md:text-left mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{t('hero.title')}.</h1>
       <p class="text-center md:text-left mb-6 text-2xl text-gray-500 lg:text-xl dark:text-gray-400 md:max-w-[95%]">
@@ -39,7 +39,7 @@ const curriculumLink = 'https://drive.google.com/file/d/1QeqQMzqUihXmBbwMHHkjb8Y
               {t('hero.actions.view_cv')}
               <svg class="w-4 h-4 ms-2 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
-              </svg>              
+              </svg>
           </a>
           <a href="#contact" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-2xl border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
               {t('hero.actions.contact_me')}
