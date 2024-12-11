@@ -18,7 +18,7 @@ const { images, title, description, link, codeLink, technologies, time } = Astro
       <div>
         <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white flex flex-row gap-1 items-center">
           {title}
-          <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
+          <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
             <a href={link} target="_blank">
               <LinkIcon />
             </a>
@@ -31,7 +31,7 @@ const { images, title, description, link, codeLink, technologies, time } = Astro
       <div>        
         <TecnologiesList technologies={technologies} />
         <div class="flex flex-row justify-end">
-          <a href={codeLink} target="_blank" class="text-right underline text-gray-400 dark:text-gray-500">
+          <a href={codeLink} target="_blank" class="text-right hover:underline text-gray-400 dark:text-gray-500">
             {t('projects.see_code')}
           </a>
         </div>
