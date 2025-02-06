@@ -2,7 +2,7 @@ export const experiences = {
   en: {
     'experiences.technologies': 'Technologies & Tools',
     'experiences.apside': 'Apside - Insurance Calculators',
-    'experiences.apside.time': 'June 2024 - Present (7 months)',
+    'experiences.apside.time': 'June 2024 - Present (9 months)',
     'experiences.apside.description': 'A bank that sells insurance, and for this purpose it has developed quotation systems that are used by executives. The quoting systems are made up of different microservices, mainly Frontend. The team consists of a Product Owner, a Tech Lead, and several developers. The development methodology is Kanban. My responsibilities are mainly based on developing features for these quotation engines and maintaining them.',
     'experiences.un': 'Universidad Nacional de Colombia - EstuResidencia',
     'experiences.un.time': 'August 2023 - December 2023 (5 months)',
@@ -14,7 +14,7 @@ export const experiences = {
   es: {
     'experiences.technologies': 'Tecnologías & Herramientas',
     'experiences.apside': 'Apside - Cotizadores de Seguros',
-    'experiences.apside.time': 'Junio 2024 - Presente (7 meses)',
+    'experiences.apside.time': 'Junio 2024 - Presente (9 meses)',
     'experiences.apside.description': 'Una entidad bancaria que vende seguros, y para este propósito ha desarrollado sistemas de cotización que son utilizados por ejecutivos. Los sistemas de cotización están compuestos de diferentes microservicios, principalmente Frontend. El equipo consta de un Product Owner, un Tech Lead y varios desarrolladores. El enfoque metodológico es Kanban. Mis responsabilidades son principalmente desarrollar características para estos motores de cotización y mantenerlos.',
     'experiences.un': 'Universidad Nacional de Colombia - EstuResidencia',
     'experiences.un.time': 'Agosto 2023 - Diciembre 2023 (5 meses)',
