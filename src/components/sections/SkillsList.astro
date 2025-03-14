@@ -1,5 +1,6 @@
 ---
 import VueLogo from '../../assets/skills/vuejs.svg';
+import ReactLogo from '../../assets/skills/react.svg';
 import TypescriptLogo from '../../assets/skills/typescript.svg';
 import AstroLogo from '../../assets/skills/astro.svg';
 import HtmlLogo from '../../assets/skills/html5.svg';
@@ -17,41 +18,123 @@ import VitestLogo from '../../assets/skills/vitest.svg';
 import NuxtLogo from '../../assets/skills/nuxtjs.svg';
 import NpmLogo from '../../assets/skills/npm2.svg';
 import FigmaLogo from '../../assets/skills/figma.svg';
-import GoLogo from '../../assets/skills/go.svg';
 import GCloudLogo from '../../assets/skills/gcloud.svg';
+import FastAPILogo from '../../assets/skills/fastapi.svg';
+import TantStackQueryLogo from '../../assets/skills/reactquery.svg';
+import ChakraUILogo from '../../assets/skills/chakraui.svg';
+import PostmanLogo from '../../assets/skills/postman.svg';
+import CypressLogo from '../../assets/skills/cypress.svg';
 
+import type { languages } from '../../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang as keyof typeof languages)
+
+// Organización de habilidades por categoría
+const skillsCategories = {
+  frontend: [
+    { name: 'Vue.js', logo: VueLogo },
+    { name: 'React.js', logo: ReactLogo },
+    { name: 'TypeScript', logo: TypescriptLogo },
+    { name: 'JavaScript', logo: JavascriptLogo },
+    { name: 'HTML', logo: HtmlLogo },
+    { name: 'CSS', logo: CssLogo },
+    { name: 'Sass', logo: SassLogo },
+    { name: 'Tailwind', logo: TailwindLogo },
+    { name: 'Astro', logo: AstroLogo },
+    { name: 'Nuxt.js', logo: NuxtLogo },
+    { name: 'TantStack Query', logo: TantStackQueryLogo },
+    { name: 'Chakra UI', logo: ChakraUILogo },
+  ],
+  backend: [
+    { name: 'Nest.js', logo: NestLogo },
+    { name: 'FastAPI', logo: FastAPILogo },
+    { name: 'Python', logo: PythonLogo },
+    { name: 'PostgreSQL', logo: PostgresLogo },
+  ],
+  cloud: [
+    { name: 'AWS', logo: AWSLogo },
+    { name: 'GCloud', logo: GCloudLogo },
+    { name: 'Docker', logo: DockerLogo },
+  ],
+  tools: [
+    { name: 'Git', logo: GitLogo },
+    { name: 'npm', logo: NpmLogo },
+    { name: 'Figma', logo: FigmaLogo },
+    { name: 'Vitest', logo: VitestLogo },
+    { name: 'Postman', logo: PostmanLogo },
+    { name: 'Cypress', logo: CypressLogo },
+  ]
+};
+
+// Para compatibilidad con código existente, mantenemos la lista completa
 const skills = [
-  { name: 'Vue.js', logo: VueLogo },
-  { name: 'Astro', logo: AstroLogo },
-  { name: 'TypeScript', logo: TypescriptLogo },
-  { name: 'HTML', logo: HtmlLogo },
-  { name: 'CSS', logo: CssLogo },
-  { name: 'JavaScript', logo: JavascriptLogo },
-  { name: 'Tailwind', logo: TailwindLogo },
-  { name: 'AWS', logo: AWSLogo },
-  { name: 'Docker', logo: DockerLogo },
-  { name: 'Git', logo: GitLogo },
-  { name: 'NestJS', logo: NestLogo },
-  { name: 'PostgreSQL', logo: PostgresLogo },
-  { name: 'Python', logo: PythonLogo },
-  { name: 'Sass', logo: SassLogo },
-  { name: 'Vitest', logo: VitestLogo },
-  { name: 'NuxtJS', logo: NuxtLogo },
-  { name: 'NPM', logo: NpmLogo },
-  { name: 'Figma', logo: FigmaLogo },
-  { name: 'Go', logo: GoLogo },
-  { name: 'GCloud', logo: GCloudLogo },
-]
+  ...skillsCategories.frontend,
+  ...skillsCategories.backend,
+  ...skillsCategories.cloud,
+  ...skillsCategories.tools
+];
 ---
 
-<ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-10 gap-4">
-  {skills.map((skill) => (
-    <li class="col-span-1">
-      <div class="flex flex-col items-center justify-center">
-        <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
-        <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
-      </div>
-    </li>
-  ))}
-</ul>
+<div class="space-y-10">
+  <!-- Frontend -->
+  <div>
+    <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">Frontend</h3>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {skillsCategories.frontend.map((skill) => (
+        <li class="col-span-1">
+          <div class="flex flex-col items-center justify-center">
+            <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
+            <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Backend -->
+  <div>
+    <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">Backend</h3>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {skillsCategories.backend.map((skill) => (
+        <li class="col-span-1">
+          <div class="flex flex-col items-center justify-center">
+            <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
+            <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Infraestructura Cloud -->
+  <div>
+    <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">{t('skills.cloud')}</h3>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {skillsCategories.cloud.map((skill) => (
+        <li class="col-span-1">
+          <div class="flex flex-col items-center justify-center">
+            <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
+            <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Development tools -->
+  <div>
+    <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">{t('skills.tools')}</h3>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {skillsCategories.tools.map((skill) => (
+        <li class="col-span-1">
+          <div class="flex flex-col items-center justify-center">
+            <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
+            <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

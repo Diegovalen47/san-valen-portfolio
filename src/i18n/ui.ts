@@ -28,7 +28,9 @@ export const ui = {
     'contact.title': '¿Quieres contactarme?',
     'contact.text': 'Puedes hacerlo a través de mi correo electrónico o mi número de WhatsApp.',
     'contact.platforms': 'También puedes encontrarme en las siguientes plataformas:',
-    'footer': 'Hecho con Astro, Tailwind y Flowbite.'
+    'footer': 'Hecho con Astro, Tailwind y Flowbite.',
+    'skills.cloud': 'Infraestructura Cloud',
+    'skills.tools': 'Herramientas de Desarrollo',
   },
   en: {
     'nav.about': 'About',
@@ -50,6 +52,8 @@ export const ui = {
     'contact.title': 'What\'s next?',
     'contact.text': 'If you want to contact me, you can do it through my email or my WhatsApp number.',
     'contact.platforms': 'You can also find me on the following platforms:',
-    'footer': 'Made with Astro, Tailwind and Flowbite.'
+    'footer': 'Made with Astro, Tailwind and Flowbite.',
+    'skills.cloud': 'Cloud Infrastructure',
+    'skills.tools': 'Development Tools',
   },
 };

@@ -30,7 +30,7 @@ const { link, title, time, description, bulletPoints, technologies } = Astro.pro
       {title[lang]}
     </h3>
   )}
-  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{time[lang]}</time>
+  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 italic">{time[lang]}</time>
   <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400" set:html={description[lang]}></p>
   <ul class="list-disc list-inside mb-3 md:max-w-[80%] pl-3">
     {bulletPoints.map((bulletPoint: { en: string, es: string }) => (
