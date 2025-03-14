@@ -26,7 +26,7 @@ const { images, title, description, link, codeLink, technologies, time } = Astro
           </div>
         </h5>
         <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{time}</time>
-        <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400 md:max-w-[90%]">{description}</p>
+        <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400 md:max-w-[90%]" set:html={description}></p>
       </div>
       <div>        
         <TecnologiesList technologies={technologies} />

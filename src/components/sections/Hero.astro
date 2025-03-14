@@ -6,9 +6,14 @@ import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import SanValenMemoji from '../../assets/san_valen_memoji.webp';
 
+const cvLangMap = {
+  'es': 'https://drive.google.com/file/d/1gAiy4ZsFAzBXUCADKHnB6ykiqMKHwqNc/view?usp=sharing',
+  'en': 'https://drive.google.com/file/d/1hGeatZeKWrlqzbT_YOv2TuRxxykHrPqm/view?usp=sharing',
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
-const curriculumLink = 'https://drive.google.com/file/d/1lW_IIHNVYnUjxe7aKuaPnUrF9NPiIPrY/view?usp=sharing';
+const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
 ---
 
 <section class="bg-white dark:bg-gray-900 pt-14">

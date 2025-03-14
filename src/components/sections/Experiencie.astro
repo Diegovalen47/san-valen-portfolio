@@ -9,26 +9,87 @@ const t = useTranslations(lang as keyof typeof languages)
 const experiences = [
   {
     link: "https://apside.cl/",
-    title: t('experiences.apside'),
-    time: t('experiences.apside.time'),
-    description: t('experiences.apside.description'),
-    technologies: ["Vue.js 2/3", "Pinia", "Vuex", "AWS CodePipeline", "AWS CodeBuild", "AWS EC2", "AWS Lambda", "AWS DynamoDB", "TanStack Query", "TypeScript", "JavaScript", "SSO", "Docker", "GCP"],
+    title: {
+      en: "FullStack Software Engineer - Apside",
+      es: "Ingeniero de Software FullStack - Apside",
+    },
+    time: {
+      en: "June 2024 - Present (10 months)",
+      es: "Junio 2024 - Presente (10 meses)",
+    },
+    description: {
+      en: "In this role, I <strong>develop</strong> and <strong>maintain</strong> insurance <strong>quoting systems</strong> used by sales executives to calculate premiums based on <strong>customer data</strong>.",
+      es: "En este rol, <strong>desarrollo</strong> y <strong>mantengo</strong> sistemas de <strong>cotización de seguros</strong> utilizados por ejecutivos de ventas para calcular primas basadas en <strong>datos de clientes</strong>.",
+    },
+    bulletPoints: [
+      {
+        en: "When we discovered that individuals with <strong>blocked IDs</strong> or those making self-sales <strong>could bypass the process</strong>, I collaborated with <strong>cross-functional teams</strong> to gather necessary information, <strong>Created endpoints</strong> to query external validation services, and implemented <strong>UI changes</strong> that alert and <strong>halt the process</strong> if irregularities occur.",
+        es: "Cuando descubrimos que individuos con <strong>IDs bloqueadas</strong> o aquellos que realizaban ventas por cuenta propia podían <strong>podían eludir el proceso</strong>, colaboré con <strong>equipos de trabajo interdisciplinarios</strong> para recopilar la información necesaria. Creé endpoints para consultar servicios de validación externos e <strong>implementé cambios en la interfaz de usuario</strong> que alertan y <strong>detienen el proceso</strong> si ocurren irregularidades.",
+      },
+      {
+        en: "This solution has <strong>prevented invalid quotes</strong> and saved executives an average of <strong>20% of their time</strong> on unfinished quotes.",
+        es: "Esta solución ha <strong>evitado cotizaciones inválidas</strong> y ha ahorrado a los ejecutivos un promedio de <strong>20% de su tiempo</strong> en cotizaciones incompletas.",
+      },
+    ],
+    technologies: ["Vue.js", "React.js", "Sass", "Modyo", "ModyoCLI", "FastAPI", "Nest.js", "TypeScript", "Python", "AWS CloudWatch", "AWS Lambda", "AWS CodePipeline", "AWS DynamoDB", "SSO", "Docker", "Microservices", "TailwindCSS", "Vitest", "Design System", "Clean Architecture"],
     isLatest: true,
   },
-  // {
-  //   link: "https://drive.google.com/file/d/1fkq3XdeE3V7dPMRkug4VwtYfPdS1IlPh/view?usp=sharing",
-  //   title: t('experiences.un'),
-  //   time: t('experiences.un.time'),
-  //   description: t('experiences.un.description'),
-  //   technologies: ["AWS", "Figma", "Clean Architecture", "Design Patterns", "Vue.js", "Flutter", "Django", "PostgreSQL"],
-  //   isLatest: false,
-  // },
+  {
+    link: null,
+    title: {
+      en: "Lead Frontend Developer - EstuResidencia",
+      es: "Desarrolador Frontend Líder - EstuResidencia",
+    },
+    time: {
+      en: "August 2023 - December 2023 (5 months))",
+      es: "Agosto 2023 - Diciembre 2023 (5 meses)",
+    },
+    description: {
+      en: "I <strong>led</strong> the development of a <strong>mobile application</strong> designed to <strong>connect out-of-town students</strong> with local <strong>landlords</strong> offering <strong>rooms and apartments</strong>.",
+      es: "<strong>Lideré</strong> el desarrollo de una <strong>aplicación móvil</strong> diseñada para <strong>conectar a estudiantes foráneos</strong> con <strong>propietarios</strong> locales que ofrecen <strong>habitaciones y apartamentos</strong>.",
+    },
+    bulletPoints: [
+      {
+        en: "I assumed project <strong>leadership</strong> in creating a <strong>minimum viable product</strong> with the required functionalities in <strong>under three months</strong> and <strong>coordinated</strong> team members handling back-end, front-end, documentation, and testing.",
+        es: "Asumí el <strong>liderazgo</strong> del proyecto en la creación de un <strong>producto mínimo viable</strong> con las funcionalidades requeridas en <strong>menos de tres meses</strong> y <strong>coordiné</strong> al equipo de <strong>back-end</strong>, <strong>front-end</strong>, <strong>documentación</strong> y <strong>pruebas</strong>.",
+      },
+      {
+        en: "My contributions to both project management and front-end development resulted in a <strong>functional prototype</strong> tested by approximately <strong>100 users</strong>, effectively validating the solution.",
+        es: "Mis contribuciones tanto en la <strong>gestión del proyecto</strong> como en el desarrollo <strong>front-end</strong> dieron como resultado un <strong>prototipo funcional</strong> probado por aproximadamente <strong>100 usuarios</strong>, validando efectivamente la solución.",
+      },
+    ],
+    technologies: ["React.js", "Sass", "TypeScript", "Python", "AWS (EC2, RDS)", "Figma", "Zustand", "Postman", "PostgreSQL", "Cypress"],
+    isLatest: true,
+  },
   {
     link: "https://unergy.io/",
-    title: t('experiences.unergy'),
-    time: t('experiences.unergy.time'),
-    description: t('experiences.unergy.description'),
-    technologies: ["Vue.js 2/3", "Nuxt.js", "Vuex", "Pinia", "JWT", "NPM", "JavaScript", "Websockets", "Git", "APIs", "HTML", "CSS", "SASS"],
+    title: {
+      en: "Frontend Developer - Unergy",
+      es: "Desarrollador Frontend - Unergy",
+    },
+    time: {
+      en: "October 2022 - June 2024 (1 year 9 months)",
+      es: "Octubre 2022 - Junio 2024 (1 año 9 meses)",
+    },
+    description: {
+      en: "At a <strong>web3 crowdfunding</strong> platform for <strong>solar energy projects</strong>, I was responsible for <strong>translating designs</strong> into <strong>responsive</strong>, <strong>user-friendly</strong> interfaces and <strong>landing pages</strong>.",
+      es: "En una plataforma de <strong>crowdfunding web3</strong> para <strong>proyectos de energía solar</strong>, fui responsable de <strong>traducir diseños</strong> en <strong>interfaces responsivas</strong> y <strong>fáciles de usar</strong>, así como <strong>landing pages</strong>."
+    },
+    bulletPoints: [
+      {
+        en: "I achieved a <strong>30% improvement</strong> in first-page <strong>load performance</strong> by employing <strong>asynchronous</strong> techniques and <strong>asset optimization</strong> strategies.",
+        es: "Logré una <strong>mejora del 30%</strong> en el <strong>rendimiento de la carga</strong> de la primera página mediante el empleo de técnicas <strong>asíncronas</strong> y estrategias de <strong>optimización de recursos</strong>."
+      },
+      {
+        en: "I also <strong>collaborated</strong> with back-end and blockchain teams to <strong>integrate new features</strong> and <strong>led</strong> the implementation of additional functionalities.",
+        es: "También <strong>colaboré</strong> con los equipos de <strong>back-end</strong> y <strong>blockchain</strong> para <strong>integrar nuevas funcionalidades</strong> y <strong>lideré</strong> la implementación de funcionalidades adicionales."
+      },
+      {
+        en: "Using an <strong>agile approach</strong>, I organized the development of a responsive interface that delivered <strong>real-time graphs</strong> of measurements and <strong>profitability</strong> for institutional investors. The solution was launched on schedule and received high praise from <strong>key investors</strong>.",
+        es: "Utilizando un <strong>enfoque ágil</strong>, organicé el desarrollo de una interfaz responsiva que entregaba <strong>gráficos en tiempo real</strong> de mediciones y <strong>rentabilidad</strong> para inversores institucionales. La solución fue lanzada <strong>según lo previsto</strong> y recibió grandes elogios por parte de <strong>inversores clave</strong>."
+      }
+    ],
+    technologies: ["Vue.js", "Nuxt.js", "Javascript", "TypeScript", "Python", "HTML", "CSS", "Sass", "Vuex", "Pinia", "JWT", "OAuth2", "Npm", "Websockets", "API integration", "Tanstack Query", "Git", "AWS EC2", "GCP", "Microfrontend", "Design Patterns"],
     isLatest: false,
   },
 ]

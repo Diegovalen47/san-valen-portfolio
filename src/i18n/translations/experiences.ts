@@ -1,26 +1,8 @@
 export const experiences = {
   en: {
     'experiences.technologies': 'Technologies & Tools',
-    'experiences.apside': 'Apside - Insurance Calculators',
-    'experiences.apside.time': 'June 2024 - Present (9 months)',
-    'experiences.apside.description': 'A bank that sells insurance, and for this purpose it has developed quotation systems that are used by executives. The quoting systems are made up of different microservices, mainly Frontend. The team consists of a Product Owner, a Tech Lead, and several developers. The development methodology is Kanban. My responsibilities are mainly based on developing features for these quotation engines and maintaining them.',
-    'experiences.un': 'Universidad Nacional de Colombia - EstuResidencia',
-    'experiences.un.time': 'August 2023 - December 2023 (5 months)',
-    'experiences.un.description': 'Mobile application to help foreign students find accommodation. Landlords post properties and students apply as tenants. The team consisted of 5 college students/developers. The working methodology used was Scrum. My main responsibilities were: Frontend development, design, task assignment, technology selection, prioritization.',
-    'experiences.unergy': 'Unergy - Investments Platform',
-    'experiences.unergy.time': 'October 2022 - June 2024 (1 year 9 months)',
-    'experiences.unergy.description': 'Investment platform for sustainable energy projects. Users can invest and view energy generation in real time. The team consisted of a Product Manager, a Tech Lead and several developers with different seniorities. The methodologies used were Scrum and Kanban. My responsibilities were: To take into account the needs of institutional investors, and convert these into functional features in the platform, also creating the necessary Backend services to support them.',
   },
   es: {
     'experiences.technologies': 'Tecnologías & Herramientas',
-    'experiences.apside': 'Apside - Cotizadores de Seguros',
-    'experiences.apside.time': 'Junio 2024 - Presente (9 meses)',
-    'experiences.apside.description': 'Una entidad bancaria que vende seguros, y para este propósito ha desarrollado sistemas de cotización que son utilizados por ejecutivos. Los sistemas de cotización están compuestos de diferentes microservicios, principalmente Frontend. El equipo consta de un Product Owner, un Tech Lead y varios desarrolladores. El enfoque metodológico es Kanban. Mis responsabilidades son principalmente desarrollar características para estos motores de cotización y mantenerlos.',
-    'experiences.un': 'Universidad Nacional de Colombia - EstuResidencia',
-    'experiences.un.time': 'Agosto 2023 - Diciembre 2023 (5 meses)',
-    'experiences.un.description': 'Aplicación móvil para ayudar a estudiantes extranjeros a encontrar alojamiento. Los propietarios publican propiedades y los estudiantes se aplican como inquilinos. El equipo constaba de 5 estudiantes/desarrolladores universitarios. El enfoque metodológico utilizado fue Scrum. Mis responsabilidades principales fueron: Desarrollo Frontend, diseño, asignación de tareas, selección de tecnologías, priorización.',
-    'experiences.unergy': 'Unergy - Plataforma de Inversiones',
-    'experiences.unergy.time': 'Octubre 2022 - Junio 2024 (1 año 9 meses)',
-    'experiences.unergy.description': 'Plataforma de inversión para proyectos de energía sostenible. Los usuarios pueden invertir y ver la generación de energía en tiempo real. El equipo constaba de un Product Manager, un Tech Lead y varios desarrolladores con diferentes senioridades. Las metodologías utilizadas fueron Scrum y Kanban. Mis responsabilidades fueron: Tomar en cuenta las necesidades de inversores institucionales, y convertir estas en características funcionales en la plataforma, así como crear los servicios Backend necesarios para apoyarlos.',
   },
 }

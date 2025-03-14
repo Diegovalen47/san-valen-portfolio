@@ -8,24 +8,37 @@ import TecnologiesList from "../TecnologiesList.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 
-const { link, title, time, description, isLatest, technologies } = Astro.props;
+const { link, title, time, description, bulletPoints, technologies } = Astro.props;
 ---
 
-<li class="mb-10 ms-6">
-  <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-gray-100 dark:ring-gray-800 dark:bg-blue-900">
+<li class="mb-10 ms-10">
+  <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -start-4 ring-8 ring-gray-100 dark:ring-gray-800 dark:bg-blue-900">
       <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
           <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
       </svg>
   </span>
-  <a href={link} target="_blank" class="mb-1 text-lg font-semibold text-gray-900 dark:text-white flex flex-row gap-2 items-center">
-    {title} 
-    <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700 px-1">
-      <LinkIcon />
-      <span class="sr-only">Link to the project</span>
-    </div>
-  </a>
-  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{time}</time>
-  <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400 md:max-w-[90%]">{description}</p>
+  {link ? (
+    <a href={link} target="_blank" class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white flex flex-row gap-2 items-center">
+      <span set:html={title[lang]}></span>
+      <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
+        <LinkIcon />
+        <span class="sr-only">Link to the project</span>
+      </div>
+    </a>
+  ) : (
+    <h3 class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white">
+      {title[lang]}
+    </h3>
+  )}
+  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{time[lang]}</time>
+  <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400" set:html={description[lang]}></p>
+  <ul class="list-disc list-inside mb-3 md:max-w-[80%] pl-3">
+    {bulletPoints.map((bulletPoint: { en: string, es: string }) => (
+      <li class="text-base font-normal marker:text-xl marker:mr-1 text-gray-500 dark:text-gray-400">
+        <span set:html={bulletPoint[lang]} class="-ml-2"></span>
+      </li>
+    ))}
+  </ul>
   <div class="md:max-w-[80%]">
     <TecnologiesList technologies={technologies} />
   </div>
