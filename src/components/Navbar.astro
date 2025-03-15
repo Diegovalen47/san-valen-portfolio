@@ -10,8 +10,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 ---
 
-<header class="fixed top-0 left-0 z-40 w-full bg-white dark:bg-gray-900">
-  <nav class="bg-white dark:bg-gray-900 max-w-screen-xl flex flex-wrap items-center justify-between md:gap-12 mx-auto px-4 py-2">
+<header class="fixed top-0 left-0 z-40 w-full transition-all duration-300" id="navbar">
+  <nav class="max-w-screen-xl flex flex-wrap items-center justify-between md:gap-12 mx-auto px-4 py-2">
     <a href="#about" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={SanValenPic.src} class="h-8 rounded-full" alt="Flowbite Logo" />
     </a>
@@ -44,3 +44,26 @@ const t = useTranslations(lang as keyof typeof languages)
     </div>
   </nav>
 </header>
+
+<script>
+  // Función para controlar el cambio de estilo en la navbar durante scroll
+  function handleScroll() {
+    const navbar = document.getElementById('navbar');
+    
+    if (navbar) {
+      if (window.scrollY > 10) {
+        // Aplicar efecto blur cuando hay scroll
+        navbar.classList.add('backdrop-blur-md', 'bg-white/70', 'dark:bg-gray-900/70', 'shadow-sm');
+      } else {
+        // Remover efecto cuando está en la parte superior
+        navbar.classList.remove('backdrop-blur-md', 'bg-white/70', 'dark:bg-gray-900/70', 'shadow-sm');
+      }
+    }
+  }
+
+  // Inicializar el estado de la navbar según la posición actual
+  document.addEventListener('DOMContentLoaded', handleScroll);
+  
+  // Añadir event listener para el evento de scroll
+  window.addEventListener('scroll', handleScroll);
+</script>

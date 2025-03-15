@@ -1,0 +1,119 @@
+<div>
+  <div id="custom-cursor-circle" class="hidden">
+    <div class="cursor-circle"></div>
+  </div>
+  <div id="custom-cursor-mid-circle" class="hidden">
+    <div class="cursor-mid-circle"></div>
+  </div>
+  <div id="custom-cursor-dot" class="hidden">
+    <div class="cursor-dot"></div>
+  </div>
+</div>
+
+<style>
+  #custom-cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.08s ease;
+  }
+  
+  .cursor-circle {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #c27803;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #custom-cursor-mid-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.09s ease;
+  }
+  
+  .cursor-mid-circle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #c27803;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+  }
+  
+  .cursor-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #c27803;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .hidden {
+    opacity: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #cursor-circle {
+      border: 1px solid #ffffff;
+    }
+
+    #cursor-mid-circle {
+      border: 1px solid #ffffff;
+    }
+
+    #cursor-dot {
+      background-color: #ffffff;
+    }
+  }
+</style>
+
+<script>
+  const cursorCircle = document.getElementById('custom-cursor-circle');
+  const cursorMidCircle = document.getElementById('custom-cursor-mid-circle');
+  const cursorDot = document.getElementById('custom-cursor-dot');
+  
+  document.addEventListener('mousemove', (e) => {
+    if (cursorCircle) {
+      cursorCircle.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursorCircle.classList.remove('hidden');
+    }
+    if (cursorMidCircle) {
+      cursorMidCircle.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursorMidCircle.classList.remove('hidden');
+    }
+    if (cursorDot) {
+      cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursorDot.classList.remove('hidden');
+    }
+  });
+  
+  // Opcional: ocultar el cursor cuando sale de la ventana
+  document.addEventListener('mouseout', () => {
+    if (cursorCircle) {
+      cursorCircle.classList.add('hidden');
+    }
+    if (cursorMidCircle) {
+      cursorMidCircle.classList.add('hidden');
+    }
+    if (cursorDot) {
+      cursorDot.classList.add('hidden');
+    }
+  });
+</script> 
