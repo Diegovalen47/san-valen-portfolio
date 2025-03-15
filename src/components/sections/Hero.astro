@@ -24,12 +24,12 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
   <div class="absolute top-0 left-0 w-full h-full object-cover z-20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-gray-900/60 shadow-sm">
   </div>
   <img src={SetupImg.src} alt="Setup" class="absolute top-0 left-0 w-full h-full object-cover z-10" />
-  <img src={SanValenMemojiMirror.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 w-[150px] h-auto object-contain fade-in-element animation-delay-5 hidden md:block z-30 absolute bottom-0 right-10" />
-  <div class="z-30 relative mx-auto max-w-screen-xl py-8 px-4 sm:pt-36 flex flex-col md:flex-row">
+  <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 w-[150px] h-auto object-contain fade-in-element animation-delay-5 hidden md:block z-30 absolute bottom-0 left-0 right-0" />
+  <div class="z-30 relative mx-auto max-w-screen-xl pt-8 pb-0 px-4 md:pt-36 flex flex-col md:flex-row">
     <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 md:w-[330px] w-[150px] h-auto object-contain fade-in-element animation-delay-5 md:hidden" />
     <div class="w-full md:w-7/12 flex flex-col">
       <h1 class="text-center self-center md:self-start md:text-left mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white typewriter max-w-fit z-10">{t('hero.title')}.</h1>
-      <p class="text-center md:text-left mb-6 text-2xl text-gray-500 lg:text-xl dark:text-gray-400 md:max-w-[95%] fade-in-element animation-delay-1">
+      <p class="text-center md:text-left mb-6 text-xl md:text-2xl text-gray-500 lg:text-xl dark:text-gray-400 md:max-w-[95%] fade-in-element animation-delay-1">
         <span class="font-bold">{t('hero.experience')}.</span>
         <span class="text-yellow-700 dark:text-yellow-500">{t('hero.role')}.</span>
         <span>{t('hero.description')}</span>
@@ -64,8 +64,8 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
       </div>
     </div>
   </div>
-  <div class="z-30 relative py-8 px-8 mx-auto max-w-screen-xl flex justify-center fade-in-element animation-delay-6">
-    <a href="#experience" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-transparent rounded-2xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-transparent dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 animate-bounce hover:animate-none transition-all duration-300">
+  <div class="z-30 relative px-8 mx-auto max-w-screen-xl flex justify-center fade-in-element animation-delay-6">
+    <a href="#experience" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-transparent rounded-2xl hover:bg-transparent hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-transparent dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-transparent animate-bounce hover:animate-none transition-all duration-300">
       <svg class="w-16 h-16 text-gray-800 dark:text-white animate-pulse" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
       </svg>
