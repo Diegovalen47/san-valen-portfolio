@@ -1,4 +1,4 @@
-<div>
+<div id="custom-cursor">
   <div id="custom-cursor-circle" class="hidden">
     <div class="cursor-circle"></div>
   </div>
@@ -11,6 +11,13 @@
 </div>
 
 <style>
+
+  @media (max-width: 768px) {
+    #custom-cursor {
+      display: none;
+    }
+  }
+
   #custom-cursor-circle {
     position: fixed;
     top: 0;
