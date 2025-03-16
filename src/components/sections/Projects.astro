@@ -15,19 +15,6 @@ const t = useTranslations(lang as keyof typeof languages)
 
 const projects = [
   {
-    title: 'EstuResidencia',
-    description: t('projects.esturesidencia.description'),
-    link: 'https://drive.google.com/file/d/1fkq3XdeE3V7dPMRkug4VwtYfPdS1IlPh/view?usp=sharing',
-    codeLink: 'https://github.com/orgs/EstuResidencia/repositories',
-    time: t('projects.esturesidencia.time'),
-    technologies: ['Vue.js', 'Flutter', 'AWS', 'Figma', 'Clean Architecture', 'Design Patterns', 'Django', 'PostgreSQL'],
-    images: [
-      { src: EstuResidencia1.src, alt: 'EstuResidenciaLogin' },
-      { src: EstuResidencia2.src, alt: 'EstuResidenciaMenu' },
-      { src: EstuResidencia3.src, alt: 'EstuResidenciaDetalles' },
-    ]
-  },
-  {
     title: 'PokeStrategy',
     description: t('projects.pokestrategy.description'),
     link: 'https://pokemonstrategy.netlify.app/',
@@ -41,13 +28,39 @@ const projects = [
       { src: PokeStrategyItem4.src, alt: 'PokeStrategyItem4' },
     ],
   },
+  // {
+  //   title: 'Tetris',
+  //   description: t('projects.tetris.description'),
+  //   link: 'https://diegovalen47.github.io/tetris-game/',
+  //   codeLink: 'https://github.com/Diegovalen47/tetris-game',
+  //   time: t('projects.esturesidencia.time'),
+  //   technologies: ['Vue.js', 'TypeScript', 'Vite', 'Vuetify'],
+  //   images: [
+  //     { src: EstuResidencia1.src, alt: 'EstuResidenciaLogin' },
+  //     { src: EstuResidencia2.src, alt: 'EstuResidenciaMenu' },
+  //     { src: EstuResidencia3.src, alt: 'EstuResidenciaDetalles' },
+  //   ]
+  // },
+  {
+    title: 'EstuResidencia',
+    description: t('projects.esturesidencia.description'),
+    link: 'https://drive.google.com/file/d/1fkq3XdeE3V7dPMRkug4VwtYfPdS1IlPh/view?usp=sharing',
+    codeLink: 'https://github.com/orgs/EstuResidencia/repositories',
+    time: t('projects.esturesidencia.time'),
+    technologies: ['Vue.js', 'Flutter', 'AWS', 'Figma', 'Clean Architecture', 'Design Patterns', 'Django', 'PostgreSQL'],
+    images: [
+      { src: EstuResidencia1.src, alt: 'EstuResidenciaLogin' },
+      { src: EstuResidencia2.src, alt: 'EstuResidenciaMenu' },
+      { src: EstuResidencia3.src, alt: 'EstuResidenciaDetalles' },
+    ]
+  }
 ]
 ---
 
 <section id="projects" class="bg-white dark:bg-gray-900 w-full py-14">
   <h2 class="text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-white mx-auto max-w-screen-xl py-8 px-4">{t('nav.projects')}</h2>
   <div class="bg-white dark:bg-gray-900 py-8 px-4 mx-auto max-w-screen-xl">
-    <ul class="space-y-8 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
+    <ul class="space-y-8 md:grid md:grid-cols-1 md:gap-8 md:space-y-0">
       {projects.map((project) => (
         <ProjectsCard {...project} />
       ))}
