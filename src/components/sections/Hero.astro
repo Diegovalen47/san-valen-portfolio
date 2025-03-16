@@ -22,9 +22,9 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
   <div class="absolute top-0 left-0 w-full h-full object-cover z-20 transition-all duration-300 backdrop-blur-sm bg-white/70 dark:bg-gray-900/60 shadow-sm">
   </div>
   <img src={SetupImg.src} alt="Setup" class="absolute top-0 left-0 w-full h-full object-cover z-10" />
-  <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 w-[150px] h-auto object-contain fade-in-element animation-delay-5 hidden md:block z-30 absolute bottom-0 left-0 right-0" />
+  <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 md:mb-0 w-[150px] h-auto object-contain fade-in-element animation-delay-2 hidden md:block z-30 absolute bottom-0 left-0 right-0" />
   <div class="z-30 relative mx-auto max-w-screen-xl pt-8 pb-0 px-4 md:pt-36 flex flex-col md:flex-row">
-    <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 w-[110px] h-auto object-contain fade-in-element animation-delay-5 md:hidden" />
+    <img src={SanValenMemoji.src} alt="Valentin Osorio" class="mx-auto mb-4 w-[110px] h-auto object-contain fade-in-element animation-delay-2 md:hidden" />
     <div class="w-full md:w-9/12 lg:w-7/12 flex flex-col">
       <h1 class="text-center self-center md:self-start md:text-left mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white typewriter max-w-fit z-10">{t('hero.title')}.</h1>
       <p class="text-center md:text-left mb-6 text-base sm:text-xl md:text-2xl text-gray-500 lg:text-xl dark:text-gray-400 md:max-w-[95%] fade-in-element animation-delay-1">
@@ -32,7 +32,7 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
         <span class="text-yellow-700 dark:text-yellow-500 font-bold">{t('hero.role')}.</span>
         <span>{t('hero.description')}</span>
       </p>
-      <div class="flex flex-col justify-start md:flex-row space-y-0 text-right gap-3 mb-6 fade-in-element animation-delay-2">
+      <div class="flex flex-col justify-start md:flex-row space-y-0 text-right gap-3 mb-6 fade-in-element animation-delay-1">
         <a href={curriculumLink} target="_blank" class="inline-flex justify-center items-center py-3 px-8 md:px-24 text-base font-medium text-center text-white rounded-2xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
             {t('hero.actions.view_cv')}
             <svg class="w-4 h-4 ms-2 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -46,11 +46,11 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
             </svg>
         </a>
       </div>
-      <div class="flex flex-row gap-2 md:items-start items-center md:justify-start justify-center text-gray-500 dark:text-gray-400 mb-6 text-right fade-in-element animation-delay-3">
+      <div class="flex flex-row gap-2 md:items-start items-center md:justify-start justify-center text-gray-500 dark:text-gray-400 mb-6 text-right fade-in-element animation-delay-1">
         <Location currentColor="gray" />
         <span>Medellín, Colombia</span>
       </div>
-      <div class="flex flex-row md:items-start items-center md:justify-start justify-center gap-6 text-gray-500 dark:text-gray-400 text-right fade-in-element animation-delay-4">
+      <div class="flex flex-row md:items-start items-center md:justify-start justify-center gap-6 text-gray-500 dark:text-gray-400 text-right fade-in-element animation-delay-1">
         <a href="https://github.com/Diegovalen47" target="_blank" class="social-link text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
           <Github currentColor="gray" />
           <span class="social-name hidden group-hover:inline-block transition-all duration-300">Github</span>
@@ -62,7 +62,7 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
       </div>
     </div>
   </div>
-  <div class="z-30 relative px-8 mx-auto max-w-screen-xl flex justify-center fade-in-element animation-delay-6">
+  <div class="z-30 relative px-8 mx-auto max-w-screen-xl flex justify-center fade-in-element animation-delay-2">
     <a href="#experience" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-transparent rounded-2xl hover:bg-transparent hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-transparent dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-transparent animate-bounce hover:animate-none transition-all duration-300">
       <svg class="w-16 h-16 text-gray-800 dark:text-white animate-pulse" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
