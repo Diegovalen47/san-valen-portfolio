@@ -9,6 +9,10 @@ import PokeStrategyItem4 from '../../assets/projects/pokestrategy/poke_4.webp';
 import EstuResidencia1 from '../../assets/projects/esturesidencia/estu_residencia_1.webp';
 import EstuResidencia2 from '../../assets/projects/esturesidencia/estu_residencia_2.webp';
 import EstuResidencia3 from '../../assets/projects/esturesidencia/estu_residencia_3.webp';
+import Tetris1 from '../../assets/projects/tetris/tetris_1.webp';
+import Tetris2 from '../../assets/projects/tetris/tetris_2.webp';
+import Tetris3 from '../../assets/projects/tetris/tetris_3.webp';
+import Tetris4 from '../../assets/projects/tetris/tetris_4.webp';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
@@ -28,19 +32,20 @@ const projects = [
       { src: PokeStrategyItem4.src, alt: 'PokeStrategyItem4' },
     ],
   },
-  // {
-  //   title: 'Tetris',
-  //   description: t('projects.tetris.description'),
-  //   link: 'https://diegovalen47.github.io/tetris-game/',
-  //   codeLink: 'https://github.com/Diegovalen47/tetris-game',
-  //   time: t('projects.esturesidencia.time'),
-  //   technologies: ['Vue.js', 'TypeScript', 'Vite', 'Vuetify'],
-  //   images: [
-  //     { src: EstuResidencia1.src, alt: 'EstuResidenciaLogin' },
-  //     { src: EstuResidencia2.src, alt: 'EstuResidenciaMenu' },
-  //     { src: EstuResidencia3.src, alt: 'EstuResidenciaDetalles' },
-  //   ]
-  // },
+  {
+    title: 'Tetris',
+    description: t('projects.tetris.description'),
+    link: 'https://diegovalen47.github.io/tetris-game/',
+    codeLink: 'https://github.com/Diegovalen47/tetris-game',
+    time: t('projects.esturesidencia.time'),
+    technologies: ['Vue.js', 'TypeScript', 'Vite', 'Vuetify'],
+    images: [
+      { src: Tetris2.src, alt: 'Tetris2' },
+      { src: Tetris3.src, alt: 'Tetris3' },
+      { src: Tetris1.src, alt: 'Tetris1' },
+      { src: Tetris4.src, alt: 'Tetris4' },
+    ]
+  },
   {
     title: 'EstuResidencia',
     description: t('projects.esturesidencia.description'),
