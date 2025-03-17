@@ -6,9 +6,12 @@ import CustomCursor from '../components/CustomCursor.astro';
 
 interface Props {
 	title: string;
+  description: string;
+  keywords: string;
+  author: string;
 }
 
-const { title } = Astro.props;
+const { title, description, keywords, author } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -17,10 +20,23 @@ const lang = getLangFromUrl(Astro.url);
 <html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Valentín Osorio's personal website, +3 years of experience in frontend development, expert in creating unique applications from scratch to production." />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content={author} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/webp" href="/san_valen_memoji.webp" />
 		<meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content="/san_valen_memoji.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/san_valen_memoji.webp" />
+    <link rel="canonical" href={Astro.url} />
 		<title>{title}</title>
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
