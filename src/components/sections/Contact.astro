@@ -28,6 +28,7 @@ const copyToClipboard = (str: string) => {
       </p>
       <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard('osoriovalentin5@gmail.com')}>
         <CopyIcon />
+        <span class="sr-only">Copy email</span>
       </button>
     </div>
     <div class="flex flex-row justify-center items-center md:gap-4 gap-2 mb-5">
@@ -37,6 +38,7 @@ const copyToClipboard = (str: string) => {
       </p>
       <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard('+573137865160')}>
         <CopyIcon />
+        <span class="sr-only">Copy phone number</span>
       </button>
     </div>
     <p class="text-center text-gray-400 dark:text-gray-500 text-base mb-5">
@@ -45,11 +47,11 @@ const copyToClipboard = (str: string) => {
     <div class="flex flex-row items-center justify-center gap-3 text-gray-500 dark:text-gray-400 mb-6 text-right">
       <a href="https://github.com/Diegovalen47" target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
         <Github currentColor="gray" />
-        <span class="sr-only">Github</span>
+        <span class="sr-only">Link to my GitHub</span>
       </a>
       <a href="https://www.linkedin.com/in/valentin-osorio/" target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
         <Linkedin currentColor="gray" />
-        <span class="sr-only">LinkedIn</span>
+        <span class="sr-only">Link to my LinkedIn</span>
       </a>
     </div>
   </div>

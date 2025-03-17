@@ -19,10 +19,10 @@ const { link, title, time, description, bulletPoints, technologies } = Astro.pro
   </span>
   {link ? (
     <a href={link} target="_blank" class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white flex flex-row gap-2 items-center">
-      <span set:html={title[lang]}></span>
+      <h3 set:html={title[lang]}></h3>
       <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
         <LinkIcon />
-        <span class="sr-only">Link to the project</span>
+        <span class="sr-only">Link to the project {title[lang]}</span>
       </div>
     </a>
   ) : (
@@ -30,11 +30,11 @@ const { link, title, time, description, bulletPoints, technologies } = Astro.pro
       {title[lang]}
     </h3>
   )}
-  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 italic">{time[lang]}</time>
-  <p class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400" set:html={description[lang]}></p>
+  <time class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-400 italic">{time[lang]}</time>
+  <p class="mb-3 text-base font-normal text-gray-600 dark:text-gray-300" set:html={description[lang]}></p>
   <ul class="list-disc list-inside mb-3 md:max-w-[80%] pl-3">
     {bulletPoints.map((bulletPoint: { en: string, es: string }) => (
-      <li class="text-base font-normal marker:text-xl marker:mr-1 text-gray-500 dark:text-gray-400">
+      <li class="text-base font-normal marker:text-xl marker:mr-1 text-gray-600 dark:text-gray-300">
         <span set:html={bulletPoint[lang]} class="-ml-2"></span>
       </li>
     ))}
