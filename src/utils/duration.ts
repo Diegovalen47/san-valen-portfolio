@@ -19,6 +19,16 @@ export function monthsSince(start: string, now: Date = new Date()) {
 }
 
 /**
+ * Counts months between two "YYYY-MM" values the same way as monthsSince.
+ * When no end is given, the range is considered ongoing until today.
+ */
+export function monthsBetween(start: string, end?: string) {
+  if (!end) return monthsSince(start);
+  const { year, month } = parseYearMonth(end);
+  return monthsSince(start, new Date(year, month - 1, 1));
+}
+
+/**
  * Rounds the elapsed time since a "YYYY-MM" start to the nearest whole year.
  */
 export function yearsSince(start: string, now: Date = new Date()) {

@@ -4,12 +4,12 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import type { languages } from '../../i18n/ui';
 import LinkIcon from "../icons/LinkIcon.astro";
 import TecnologiesList from "../TecnologiesList.astro";
-import { formatDuration, monthsSince, type DurationLang } from "../../utils/duration";
+import { formatDuration, monthsBetween, type DurationLang } from "../../utils/duration";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 
-const { link, title, time, startDate, description, bulletPoints, technologies } = Astro.props;
+const { link, title, time, startDate, endDate, description, bulletPoints, technologies } = Astro.props;
 ---
 
 <li class="mb-10 ms-10">
@@ -34,7 +34,9 @@ const { link, title, time, startDate, description, bulletPoints, technologies } 
   <time class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-400 italic">
     {time[lang]}
     {startDate && (
-      <>(<span data-duration-start={startDate} data-duration-lang={lang}>{formatDuration(monthsSince(startDate), lang as DurationLang)}</span>)</>
+      endDate
+        ? <>({formatDuration(monthsBetween(startDate, endDate), lang as DurationLang)})</>
+        : <>(<span data-duration-start={startDate} data-duration-lang={lang}>{formatDuration(monthsBetween(startDate), lang as DurationLang)}</span>)</>
     )}
   </time>
   <p class="mb-3 text-base font-normal text-gray-600 dark:text-gray-300" set:html={description[lang]}></p>

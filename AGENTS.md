@@ -36,8 +36,8 @@ src/
 
 - **Bilingual content is mandatory.** Every user-facing string exists in both `en` and `es`. Short UI strings live in `src/i18n/ui.ts`; section data (experiences, projects) lives inline in the section component as `{ en, es }` objects.
 - **Language resolution:** components call `getLangFromUrl(Astro.url)` and `useTranslations(lang)`; never hardcode a language.
-- **Experience entries** (`src/components/sections/Experiencie.astro`) are ordered newest first and follow this shape: `link`, `title`, `time`, optional `startDate`, `description`, `bulletPoints`, `technologies`. Bullet points are one sentence: action verb + what was built + measurable impact.
-- **Current job duration:** set `startDate: "YYYY-MM"` and leave the duration out of `time`. It is computed LinkedIn-style (inclusive months) with `src/utils/duration.ts`.
+- **Experience entries** (`src/components/sections/Experiencie.astro`) are ordered newest first and follow this shape: `link`, `title`, `time`, `startDate`, optional `endDate`, `description`, `bulletPoints`, `technologies`. Bullet points are one sentence: action verb + what was built + measurable impact.
+- **Job durations:** set `startDate` (and `endDate` for past jobs) as `"YYYY-MM"` and leave the duration out of `time`. It is computed LinkedIn-style (both start and end months count) with `src/utils/duration.ts`; entries without `endDate` count up to today.
 - **Dynamic dates:** the site is static, so values computed at build time go stale. Elements with `data-duration-start` / `data-years-since` are refreshed on the client by `refreshDynamicDates()` in `Layout.astro`. Reuse these attributes instead of adding new date logic.
 - **Skills** (`src/components/sections/SkillsList.astro`) are grouped into `frontend`, `backend`, `cloud` and `tools`. Each needs a colored SVG in `src/assets/skills/` (devicon originals work well).
 - **Styling:** Tailwind utility classes with `dark:` variants for every color. Component-specific CSS goes in a scoped `<style>` block.
