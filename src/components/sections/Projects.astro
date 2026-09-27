@@ -2,6 +2,7 @@
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import ProjectsCard from './ProjectsCard.astro';
+import ViewCvButton from '../ViewCvButton.astro';
 import PokeStrategyItem1 from '../../assets/projects/pokestrategy/poke_1.webp';
 import PokeStrategyItem2 from '../../assets/projects/pokestrategy/poke_2.webp';
 import PokeStrategyItem3 from '../../assets/projects/pokestrategy/poke_3.webp';
@@ -52,6 +53,9 @@ const projects = [
         <ProjectsCard {...project} />
       ))}
     </ul>
+  </div>
+  <div class="flex justify-center px-4 pt-6">
+    <ViewCvButton />
   </div>
 </section>
 

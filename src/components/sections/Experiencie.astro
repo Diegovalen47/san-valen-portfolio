@@ -1,5 +1,6 @@
 ---
 import ExperienceItem from './ExperienceItem.astro';
+import ViewCvButton from '../ViewCvButton.astro';
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import LinqiaLogo from '../../assets/companies/linqia.png';
@@ -115,6 +116,9 @@ const experiences = [
         <ExperienceItem {...experience} />
       ))}
     </ol>
+  </div>
+  <div class="flex justify-center px-4 pt-6">
+    <ViewCvButton />
   </div>
 </section>
 

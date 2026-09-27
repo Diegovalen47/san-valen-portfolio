@@ -2,6 +2,7 @@
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import SanValenJsPic from '../../assets/sanvalenjs_pic.webp';
+import ViewCvButton from '../ViewCvButton.astro';
 import { CAREER_START, yearsSince } from '../../utils/duration';
 
 const lang = getLangFromUrl(Astro.url);
@@ -23,6 +24,9 @@ const [introBefore, introAfter] = t('about.info_1').split('{years}');
       {t('about.info_3')}
     </p>
   </article>
+  <div class="flex justify-center px-4 pt-6">
+    <ViewCvButton />
+  </div>
 </section>
 
 
