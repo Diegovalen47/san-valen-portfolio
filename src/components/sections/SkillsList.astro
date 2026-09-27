@@ -12,16 +12,25 @@ import PostgresLogo from '../../assets/skills/postgresql.svg';
 import PythonLogo from '../../assets/skills/python.svg';
 import SassLogo from '../../assets/skills/sass.svg';
 import VitestLogo from '../../assets/skills/vitest.svg';
-import NpmLogo from '../../assets/skills/npm2.svg';
 import FigmaLogo from '../../assets/skills/figma.svg';
 import GCloudLogo from '../../assets/skills/gcloud.svg';
 import FastAPILogo from '../../assets/skills/fastapi.svg';
 import PostmanLogo from '../../assets/skills/postman.svg';
-import CypressLogo from '../../assets/skills/cypress.svg';
 import KubernetesLogo from '../../assets/skills/kubernetes.svg';
 import JavaLogo from '../../assets/skills/java.svg';
 import NodeLogo from '../../assets/skills/nodejs.svg';
 import PlaywrightLogo from '../../assets/skills/playwright.svg';
+import KafkaLogo from '../../assets/skills/kafka.svg';
+import MySQLLogo from '../../assets/skills/mysql.svg';
+import RedisLogo from '../../assets/skills/redis.svg';
+import DynamoDBLogo from '../../assets/skills/dynamodb.svg';
+import JenkinsLogo from '../../assets/skills/jenkins.svg';
+import GitHubLogo from '../../assets/skills/github.svg';
+import CodeBuildLogo from '../../assets/skills/aws-codebuild.svg';
+import CodeDeployLogo from '../../assets/skills/aws-codedeploy.svg';
+import PytestLogo from '../../assets/skills/pytest.svg';
+import ClaudeLogo from '../../assets/skills/claude.svg';
+import CodexLogo from '../../assets/skills/codex.svg';
 
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -29,7 +38,20 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 
-const skillsCategories = [
+interface Skill {
+  name: string;
+  logo: ImageMetadata;
+  /** Extra classes that keep dark logos visible in dark mode. */
+  darkClass?: string;
+}
+
+interface SkillsCategory {
+  title: string;
+  description?: string;
+  skills: Skill[];
+}
+
+const skillsCategories: SkillsCategory[] = [
   {
     title: t('skills.languages'),
     skills: [
@@ -52,23 +74,36 @@ const skillsCategories = [
   {
     title: t('skills.backend'),
     skills: [
-      { name: 'Node.js', logo: NodeLogo },
       { name: 'FastAPI', logo: FastAPILogo },
+      { name: 'Kafka', logo: KafkaLogo, darkClass: 'dark:invert' },
+      { name: 'Node.js', logo: NodeLogo },
     ],
   },
   {
     title: t('skills.database'),
     skills: [
       { name: 'PostgreSQL', logo: PostgresLogo },
+      { name: 'MySQL', logo: MySQLLogo, darkClass: 'dark:brightness-[2.5]' },
+      { name: 'Redis', logo: RedisLogo },
+      { name: 'DynamoDB', logo: DynamoDBLogo },
     ],
   },
   {
     title: t('skills.cloud'),
     skills: [
+      { name: 'Kubernetes', logo: KubernetesLogo },
+      { name: 'Docker', logo: DockerLogo },
       { name: 'AWS', logo: AWSLogo },
       { name: 'GCloud', logo: GCloudLogo },
-      { name: 'Docker', logo: DockerLogo },
-      { name: 'Kubernetes', logo: KubernetesLogo },
+    ],
+  },
+  {
+    title: t('skills.testing'),
+    description: t('skills.testing.description'),
+    skills: [
+      { name: 'Pytest', logo: PytestLogo },
+      { name: 'Vitest', logo: VitestLogo },
+      { name: 'Playwright', logo: PlaywrightLogo },
     ],
   },
   {
@@ -78,18 +113,19 @@ const skillsCategories = [
     ],
   },
   {
-    title: t('skills.testing'),
-    description: t('skills.testing.description'),
+    title: t('skills.ci_cd'),
     skills: [
-      { name: 'Vitest', logo: VitestLogo },
-      { name: 'Cypress', logo: CypressLogo },
-      { name: 'Playwright', logo: PlaywrightLogo },
+      { name: 'Jenkins', logo: JenkinsLogo },
+      { name: 'GitHub', logo: GitHubLogo, darkClass: 'dark:invert' },
+      { name: 'AWS CodeBuild', logo: CodeBuildLogo },
+      { name: 'AWS CodeDeploy', logo: CodeDeployLogo },
     ],
   },
   {
     title: t('skills.tools'),
     skills: [
-      { name: 'npm', logo: NpmLogo },
+      { name: 'Claude Code', logo: ClaudeLogo },
+      { name: 'Codex', logo: CodexLogo, darkClass: 'dark:invert' },
       { name: 'Postman', logo: PostmanLogo },
       { name: 'Figma', logo: FigmaLogo },
     ],
@@ -108,7 +144,7 @@ const skillsCategories = [
         {category.skills.map((skill) => (
           <li class="col-span-1">
             <div class="flex flex-col items-center justify-center">
-              <img src={skill.logo.src} alt={`${skill.name} logo`} class="w-12 h-12">
+              <img src={skill.logo.src} alt={`${skill.name} logo`} class:list={['w-12 h-12', skill.darkClass]}>
               <span class="text-sm text-gray-700 dark:text-white pt-2">{skill.name}</span>
             </div>
           </li>
