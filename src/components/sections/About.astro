@@ -41,7 +41,10 @@ const [introBefore, introAfter] = t('about.info_1').split('{years}');
     }
     .about-img {
       shape-outside: circle(50%);
-      margin-right: 2rem;
+      /* Wrapped text follows the circle, so spacing has to be added to the shape itself */
+      shape-margin: 1.5rem;
+      margin-right: 1.5rem;
+      margin-bottom: 1rem;
       float: left;
     }
   }
