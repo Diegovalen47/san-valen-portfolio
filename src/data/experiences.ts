@@ -1,0 +1,112 @@
+import LinqiaLogo from '../assets/companies/linqia.png';
+import ApsideLogo from '../assets/companies/apside.png';
+import UnergyLogo from '../assets/companies/unergy.png';
+
+export interface Experience {
+  link: string;
+  logo: ImageMetadata;
+  title: { en: string; es: string };
+  time: { en: string; es: string };
+  startDate: string;
+  endDate?: string;
+  description: { en: string; es: string };
+  bulletPoints: { en: string; es: string }[];
+  technologies: string[];
+}
+
+export const experiences: Experience[] = [
+  {
+    link: "https://www.linqia.com",
+    logo: LinqiaLogo,
+    title: {
+      en: "Software Engineer - Linqia",
+      es: "Ingeniero de Software - Linqia",
+    },
+    time: {
+      en: "June 2025 - Present",
+      es: "Junio 2025 - Presente",
+    },
+    startDate: "2025-06",
+    description: {
+      en: "Responsible for designing, building and maintaining backend systems, frontend applications and data pipelines for an influencer marketing platform, powering creator discovery, qualification and campaign analytics across Instagram, TikTok and other social networks.",
+      es: "Responsable de diseñar, construir y mantener sistemas backend, aplicaciones frontend y pipelines de datos para una plataforma de marketing de influencers, impulsando el descubrimiento y la calificación de creadores y la analítica de campañas en Instagram, TikTok y otras redes sociales.",
+    },
+    bulletPoints: [
+      {
+        en: "Built the end-to-end integration between Marco, Linqia's AI copilot, and Discovery, persisting its answers and applying them as frontend filters so users can turn a natural-language question into a filtered creator list.",
+        es: "Construí la integración de punta a punta entre Marco, el copiloto de IA de Linqia, y Discovery, persistiendo sus respuestas y aplicándolas como filtros en el frontend para que los usuarios conviertan una pregunta en lenguaje natural en una lista filtrada de creadores.",
+      },
+      {
+        en: "Turned an unreliable, rate-limited TikTok ingestion pipeline into an explicitly budgeted one with per-endpoint quota allocation, capped concurrency and randomized-backoff requeues, keeping every creator in Discovery up to date without wasting a single API call.",
+        es: "Transformé un pipeline de ingesta de TikTok inestable y afectado por límites de tasa en uno con presupuesto explícito: asignación de cuota por endpoint, concurrencia controlada y reencolado con backoff aleatorio, manteniendo actualizados a todos los creadores de Discovery sin desperdiciar una sola llamada a la API.",
+      },
+      {
+        en: "Increased the reliability and observability of the campaign creator data pipeline by designing and building from scratch, with AI assistance, a Kubernetes-hosted interactive Instagram scraper that bypasses anti-bot detection through rotating IP proxies, using retries, caching and provider fallbacks to keep costs under control.",
+        es: "Aumenté la confiabilidad y observabilidad del pipeline de datos de creadores en campañas diseñando y construyendo desde cero, con apoyo de IA, un scraper interactivo de Instagram sobre Kubernetes que evade la detección anti-bots mediante proxies con rotación de IP, usando reintentos, caché y proveedores de respaldo para mantener los costos bajo control.",
+      },
+    ],
+    technologies: ["Vue.js", "FastAPI", "JavaScript", "TypeScript", "Python", "AWS", "Systems Design", "Kubernetes", "Playwright", "Java", "Cost Estimation", "Effort Estimation", "Project Planning", "Mentoring"],
+  },
+  {
+    link: "https://apside.cl/",
+    logo: ApsideLogo,
+    title: {
+      en: "Software Developer - Apside",
+      es: "Desarrollador de Software - Apside",
+    },
+    time: {
+      en: "June 2024 - June 2025",
+      es: "Junio 2024 - Junio 2025",
+    },
+    startDate: "2024-06",
+    endDate: "2025-06",
+    description: {
+      en: "Responsible for developing and maintaining features across multiple frontend and backend microservices for insurance quoting tools used by sales executives.",
+      es: "Responsable de desarrollar y mantener funcionalidades en múltiples microservicios frontend y backend de herramientas de cotización de seguros usadas por ejecutivos de ventas.",
+    },
+    bulletPoints: [
+      {
+        en: "Optimized the identity validation flow to block quotes for users with restricted IDs and prevent executives from quoting for themselves, saving sales teams 20% of their time by discarding invalid quotes early.",
+        es: "Optimicé el flujo de validación de identidad para bloquear cotizaciones de usuarios con IDs restringidas y evitar que los ejecutivos se autocoticen, ahorrando a los equipos de ventas un 20% de su tiempo al descartar cotizaciones inválidas desde el inicio.",
+      },
+      {
+        en: "Implemented campaign-based discounts in the quoting flow, keeping it fast through caching and efficient data structures.",
+        es: "Implementé descuentos por campaña en el flujo de cotización, manteniendo un buen rendimiento mediante caché y estructuras de datos eficientes.",
+      },
+    ],
+    technologies: ["Vue.js", "FastAPI", "AWS", "Docker", "Python", "TypeScript", "Sass", "TailwindCSS", "Vistest", "Cypress", "Docker"],
+  },
+  {
+    link: "https://unergy.io/",
+    logo: UnergyLogo,
+    title: {
+      en: "Frontend Developer - Unergy",
+      es: "Desarrollador Frontend - Unergy",
+    },
+    time: {
+      en: "October 2022 - June 2024",
+      es: "Octubre 2022 - Junio 2024",
+    },
+    startDate: "2022-10",
+    endDate: "2024-06",
+    description: {
+      en: "Responsible for developing and maintaining features of a web3 crowdfunding platform for solar energy projects, turning designs and requirements into interactive, user-friendly interfaces.",
+      es: "Responsable de desarrollar y mantener funcionalidades de una plataforma de crowdfunding web3 para proyectos de energía solar, convirtiendo diseños y requisitos en interfaces interactivas y fáciles de usar."
+    },
+    bulletPoints: [
+      {
+        en: "Improved first-page load time by 30% through asynchronous loading and asset optimization.",
+        es: "Mejoré en un 30% el tiempo de carga de la primera página mediante carga asíncrona y optimización de recursos."
+      },
+      {
+        en: "Collaborated with the backend and blockchain teams to integrate new features and led the implementation of several of them.",
+        es: "Colaboré con los equipos de backend y blockchain para integrar nuevas funcionalidades y lideré la implementación de varias de ellas."
+      },
+      {
+        en: "Organized, using an agile approach, the development of a responsive dashboard with real-time measurement and profitability charts for institutional investors; it launched on schedule and was highly praised by key clients.",
+        es: "Organicé, con un enfoque ágil, el desarrollo de un dashboard responsivo con gráficos en tiempo real de mediciones y rentabilidad para inversores institucionales; se lanzó a tiempo y recibió grandes elogios de clientes clave."
+      }
+    ],
+    technologies: ["Vue.js", "Nuxt.js", "Javascript", "TypeScript", "HTML", "CSS", "Amazon EC2", "Sass", "Vuex", "Pinia", "JWT", "OAuth2", "npm", "Websockets", "TanStack Query", "Docker"],
+  },
+];

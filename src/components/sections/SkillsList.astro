@@ -1,147 +1,18 @@
 ---
-import VueLogo from '../../assets/skills/vuejs.svg';
-import ReactLogo from '../../assets/skills/react.svg';
-import TypescriptLogo from '../../assets/skills/typescript.svg';
-import HtmlLogo from '../../assets/skills/html5.svg';
-import CssLogo from '../../assets/skills/css3.svg';
-import JavascriptLogo from '../../assets/skills/js.svg';
-import AWSLogo from '../../assets/skills/aws.svg';
-import DockerLogo from '../../assets/skills/docker.svg';
-import GitLogo from '../../assets/skills/git.svg';
-import PostgresLogo from '../../assets/skills/postgresql.svg';
-import PythonLogo from '../../assets/skills/python.svg';
-import SassLogo from '../../assets/skills/sass.svg';
-import VitestLogo from '../../assets/skills/vitest.svg';
-import FigmaLogo from '../../assets/skills/figma.svg';
-import GCloudLogo from '../../assets/skills/gcloud.svg';
-import FastAPILogo from '../../assets/skills/fastapi.svg';
-import PostmanLogo from '../../assets/skills/postman.svg';
-import KubernetesLogo from '../../assets/skills/kubernetes.svg';
-import JavaLogo from '../../assets/skills/java.svg';
-import NodeLogo from '../../assets/skills/nodejs.svg';
-import PlaywrightLogo from '../../assets/skills/playwright.svg';
-import KafkaLogo from '../../assets/skills/kafka.svg';
-import MySQLLogo from '../../assets/skills/mysql.svg';
-import RedisLogo from '../../assets/skills/redis.svg';
-import DynamoDBLogo from '../../assets/skills/dynamodb.svg';
-import JenkinsLogo from '../../assets/skills/jenkins.svg';
-import GitHubLogo from '../../assets/skills/github.svg';
-import CodeBuildLogo from '../../assets/skills/aws-codebuild.svg';
-import CodeDeployLogo from '../../assets/skills/aws-codedeploy.svg';
-import PytestLogo from '../../assets/skills/pytest.svg';
-import ClaudeLogo from '../../assets/skills/claude.svg';
-import CodexLogo from '../../assets/skills/codex.svg';
-import VSCodeLogo from '../../assets/skills/vscode.svg';
-import DataGripLogo from '../../assets/skills/datagrip.svg';
-import DBeaverLogo from '../../assets/skills/dbeaver.svg';
-import ExcalidrawLogo from '../../assets/skills/excalidraw.svg';
-
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { skillsCategories } from '../../data/skills';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
-
-interface Skill {
-  name: string;
-  logo: ImageMetadata;
-  /** Extra classes that keep dark logos visible in dark mode. */
-  darkClass?: string;
-}
-
-interface SkillsCategory {
-  title: string;
-  description?: string;
-  skills: Skill[];
-}
-
-const skillsCategories: SkillsCategory[] = [
-  {
-    title: t('skills.languages'),
-    skills: [
-      { name: 'TypeScript', logo: TypescriptLogo },
-      { name: 'JavaScript', logo: JavascriptLogo },
-      { name: 'Python', logo: PythonLogo },
-      { name: 'Java', logo: JavaLogo },
-    ],
-  },
-  {
-    title: t('skills.frontend'),
-    skills: [
-      { name: 'Vue.js', logo: VueLogo },
-      { name: 'React.js', logo: ReactLogo },
-      { name: 'HTML', logo: HtmlLogo },
-      { name: 'CSS', logo: CssLogo },
-      { name: 'Sass', logo: SassLogo },
-    ],
-  },
-  {
-    title: t('skills.backend'),
-    skills: [
-      { name: 'FastAPI', logo: FastAPILogo },
-      { name: 'Kafka', logo: KafkaLogo, darkClass: 'dark:invert' },
-      { name: 'Node.js', logo: NodeLogo },
-    ],
-  },
-  {
-    title: t('skills.database'),
-    skills: [
-      { name: 'PostgreSQL', logo: PostgresLogo },
-      { name: 'MySQL', logo: MySQLLogo, darkClass: 'dark:brightness-[2.5]' },
-      { name: 'Redis', logo: RedisLogo },
-      { name: 'DynamoDB', logo: DynamoDBLogo },
-    ],
-  },
-  {
-    title: t('skills.cloud'),
-    skills: [
-      { name: 'Kubernetes', logo: KubernetesLogo },
-      { name: 'Docker', logo: DockerLogo },
-      { name: 'AWS', logo: AWSLogo },
-      { name: 'GCloud', logo: GCloudLogo },
-    ],
-  },
-  {
-    title: t('skills.testing'),
-    description: t('skills.testing.description'),
-    skills: [
-      { name: 'Pytest', logo: PytestLogo },
-      { name: 'Vitest', logo: VitestLogo },
-      { name: 'Playwright', logo: PlaywrightLogo },
-    ],
-  },
-  {
-    title: t('skills.ci_cd'),
-    skills: [
-      { name: 'Jenkins', logo: JenkinsLogo },
-      { name: 'GitHub', logo: GitHubLogo, darkClass: 'dark:invert' },
-      { name: 'AWS CodeBuild', logo: CodeBuildLogo },
-      { name: 'AWS CodeDeploy', logo: CodeDeployLogo },
-    ],
-  },
-  {
-    title: t('skills.tools'),
-    skills: [
-      { name: 'Claude Code', logo: ClaudeLogo },
-      { name: 'Codex', logo: CodexLogo, darkClass: 'dark:invert' },
-      { name: 'Git', logo: GitLogo },
-      { name: 'VS Code', logo: VSCodeLogo },
-      { name: 'DataGrip', logo: DataGripLogo },
-      { name: 'DBeaver', logo: DBeaverLogo },
-      { name: 'Postman', logo: PostmanLogo },
-      { name: 'Figma', logo: FigmaLogo },
-      { name: 'Excalidraw', logo: ExcalidrawLogo },
-    ],
-  },
-];
 ---
 
 <div class="space-y-10">
   {skillsCategories.map((category) => (
     <div>
-      <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">{category.title}</h3>
-      {category.description && (
-        <p class="px-4 mb-4 text-base text-gray-600 dark:text-gray-300">{category.description}</p>
+      <h3 class="px-4 text-xl font-bold mb-4 text-gray-800 dark:text-white">{t(category.titleKey)}</h3>
+      {category.descriptionKey && (
+        <p class="px-4 mb-4 text-base text-gray-600 dark:text-gray-300">{t(category.descriptionKey)}</p>
       )}
       <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
         {category.skills.map((skill) => (

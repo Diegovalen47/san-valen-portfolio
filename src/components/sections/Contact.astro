@@ -6,6 +6,7 @@ import Github from '../icons/Github.astro';
 import Linkedin from '../icons/Linkedin.astro';
 import MailIcon from '../icons/MailIcon.astro';
 import Phone from '../icons/Phone.astro';
+import { profile } from '../../data/profile';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
@@ -24,9 +25,9 @@ const copyToClipboard = (str: string) => {
     <div class="flex flex-row justify-center items-center md:gap-4 gap-2 mb-5">
       <MailIcon />
       <p class="text-gray-700 font-bold dark:text-white text-sm md:text-2xl">
-        osoriovalentin5@gmail.com
+        {profile.email}
       </p>
-      <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard('osoriovalentin5@gmail.com')}>
+      <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard(profile.email)}>
         <CopyIcon />
         <span class="sr-only">Copy email</span>
       </button>
@@ -34,9 +35,9 @@ const copyToClipboard = (str: string) => {
     <div class="flex flex-row justify-center items-center md:gap-4 gap-2 mb-5">
       <Phone />
       <p class="text-gray-700 font-bold dark:text-white text-sm md:text-2xl">
-        +57 313 786 5160
+        {profile.phone}
       </p>
-      <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard('+573137865160')}>
+      <button class="text-gray-700 dark:text-white text-xl hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2" onclick={copyToClipboard(profile.phoneCopy)}>
         <CopyIcon />
         <span class="sr-only">Copy phone number</span>
       </button>
@@ -45,10 +46,10 @@ const copyToClipboard = (str: string) => {
       {t('contact.platforms')}
     </p>
     <div class="flex flex-row items-center justify-center gap-3 text-gray-500 dark:text-gray-400 mb-6 text-right">
-      <a href="https://github.com/Diegovalen47" target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+      <a href={profile.links.github} target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
         <Github currentColor="gray" />
       </a>
-      <a href="https://www.linkedin.com/in/valentin-osorio/" target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+      <a href={profile.links.linkedin} target="_blank" class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-100 dark:hover:bg-gray-700">
         <Linkedin currentColor="gray" />
       </a>
     </div>
