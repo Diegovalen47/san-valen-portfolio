@@ -9,6 +9,7 @@ export default defineConfig({
 	integrations: [
 		tailwind(),
 		sitemap({
+			filter: (page) => !page.includes('/cv/'),
 			i18n: {
 				defaultLocale: 'es',
 				locales: {

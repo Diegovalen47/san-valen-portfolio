@@ -9,7 +9,8 @@ import { formatDuration, monthsBetween, type DurationLang } from "../../utils/du
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 
-const { link, logo, title, time, startDate, endDate, description, bulletPoints, technologies } = Astro.props;
+const { link, logo, role, company, time, startDate, endDate, description, bulletPoints, technologies } = Astro.props;
+const title = { en: `${role.en} - ${company}`, es: `${role.es} - ${company}` };
 ---
 
 <li class="mb-10 ms-10">

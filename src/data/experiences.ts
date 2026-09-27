@@ -5,7 +5,8 @@ import UnergyLogo from '../assets/companies/unergy.png';
 export interface Experience {
   link: string;
   logo: ImageMetadata;
-  title: { en: string; es: string };
+  role: { en: string; es: string };
+  company: string;
   time: { en: string; es: string };
   startDate: string;
   endDate?: string;
@@ -18,10 +19,11 @@ export const experiences: Experience[] = [
   {
     link: "https://www.linqia.com",
     logo: LinqiaLogo,
-    title: {
-      en: "Software Engineer - Linqia",
-      es: "Ingeniero de Software - Linqia",
+    role: {
+      en: "Software Engineer",
+      es: "Ingeniero de Software",
     },
+    company: "Linqia",
     time: {
       en: "June 2025 - Present",
       es: "Junio 2025 - Presente",
@@ -50,10 +52,11 @@ export const experiences: Experience[] = [
   {
     link: "https://apside.cl/",
     logo: ApsideLogo,
-    title: {
-      en: "Software Developer - Apside",
-      es: "Desarrollador de Software - Apside",
+    role: {
+      en: "Software Developer",
+      es: "Desarrollador de Software",
     },
+    company: "Apside",
     time: {
       en: "June 2024 - June 2025",
       es: "Junio 2024 - Junio 2025",
@@ -79,10 +82,11 @@ export const experiences: Experience[] = [
   {
     link: "https://unergy.io/",
     logo: UnergyLogo,
-    title: {
-      en: "Frontend Developer - Unergy",
-      es: "Desarrollador Frontend - Unergy",
+    role: {
+      en: "Frontend Developer",
+      es: "Desarrollador Frontend",
     },
+    company: "Unergy",
     time: {
       en: "October 2022 - June 2024",
       es: "Octubre 2022 - Junio 2024",

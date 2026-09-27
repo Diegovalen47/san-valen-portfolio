@@ -1,0 +1,282 @@
+---
+import '@fontsource/arimo/400.css';
+import '@fontsource/arimo/700.css';
+import '@fontsource/arimo/400-italic.css';
+import { profile } from '../../data/profile';
+import { experiences } from '../../data/experiences';
+import { useTranslations } from '../../i18n/utils';
+import type { languages } from '../../i18n/ui';
+import { CAREER_START, yearsSince, formatDuration, monthsBetween, formatMonthYear, type DurationLang } from '../../utils/duration';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' };
+const t = useTranslations(lang as keyof typeof languages);
+
+const years = yearsSince(CAREER_START);
+const summary = t('about.info_1').replace('{years}', String(years));
+
+const websiteLabel = t('cv.website');
+const gpaFormatted = profile.education.gpa.replace('/', ' / ');
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>{profile.name} - CV</title>
+    <style>
+      @page {
+        size: 8.5in 13in;
+        margin: 31pt 31pt 31pt 31pt;
+      }
+
+      :root {
+        --cv-blue: #1155cc;
+        --cv-gray: #666666;
+        --cv-text: #000000;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #e5e7eb;
+        font-family: 'Arimo', Arial, sans-serif;
+        color: var(--cv-text);
+      }
+
+      .sheet {
+        width: 8.5in;
+        min-height: 13in;
+        margin: 24px auto;
+        padding: 31pt;
+        background: #ffffff;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      @media print {
+        html,
+        body {
+          background: #ffffff;
+        }
+
+        .sheet {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24pt;
+        margin-bottom: 8pt;
+      }
+
+      .header .name {
+        font-size: 26pt;
+        color: var(--cv-blue);
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .header .role {
+        font-size: 14pt;
+        color: var(--cv-gray);
+        margin: 2pt 0 0;
+      }
+
+      .header .contact {
+        text-align: right;
+        font-size: 10.5pt;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+
+      .header .contact a {
+        color: var(--cv-blue);
+        text-decoration: underline;
+      }
+
+      .summary {
+        font-size: 10.5pt;
+        line-height: 1.22;
+        margin: 0 0 5pt;
+      }
+
+      h2.section {
+        font-size: 20pt;
+        font-weight: 400;
+        color: var(--cv-blue);
+        margin: 6pt 0 4pt;
+      }
+
+      .entry {
+        margin-bottom: 4pt;
+      }
+
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12pt;
+      }
+
+      .entry-head .job-title {
+        font-size: 15pt;
+        font-weight: 700;
+        color: var(--cv-blue);
+        margin: 0;
+      }
+
+      .entry-head a.company {
+        font-size: 15pt;
+        font-weight: 700;
+        color: var(--cv-blue);
+        text-decoration: underline;
+        white-space: nowrap;
+      }
+
+      .entry .date-line {
+        font-size: 10.5pt;
+        font-style: italic;
+        color: var(--cv-blue);
+        margin: 1pt 0 4pt;
+      }
+
+      .entry .description {
+        font-size: 10.5pt;
+        line-height: 1.22;
+        margin: 0 0 3pt;
+      }
+
+      .bullets {
+        margin: 0 0 3pt;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bullets li {
+        position: relative;
+        padding-left: 14pt;
+        font-size: 10.5pt;
+        line-height: 1.22;
+        margin-bottom: 1pt;
+      }
+
+      .bullets li::before {
+        content: '';
+        position: absolute;
+        left: 2pt;
+        top: 5.5pt;
+        width: 4.5pt;
+        height: 4.5pt;
+        border-radius: 50%;
+        background: var(--cv-text);
+      }
+
+      .tools {
+        font-size: 8.5pt;
+        color: var(--cv-gray);
+        line-height: 1.2;
+      }
+
+      .tools .label {
+        font-weight: 700;
+      }
+
+      .edu-degree {
+        font-size: 15pt;
+        margin: 0;
+      }
+
+      .edu-degree .label {
+        font-weight: 700;
+        color: var(--cv-blue);
+      }
+
+      .edu-degree .degree-name {
+        font-weight: 400;
+        color: var(--cv-blue);
+      }
+
+      .edu-gpa {
+        font-size: 10.5pt;
+        margin: 2pt 0 0;
+      }
+
+      .edu-gpa .label {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <div class="header">
+        <div>
+          <h1 class="name">{profile.name}</h1>
+          <p class="role">{profile.role[lang]}</p>
+        </div>
+        <div class="contact">
+          <div>{profile.location}</div>
+          <div>{profile.phone}</div>
+          <div><a href={`mailto:${profile.email}`}>{profile.email}</a></div>
+          <div>
+            <a href={profile.links.website} target="_blank">{websiteLabel}</a> -
+            <a href={profile.links.linkedin} target="_blank">LinkedIn</a> -
+            <a href={profile.links.github} target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="summary">{summary}</p>
+
+      <h2 class="section">{t('nav.experience')}</h2>
+      {experiences.map((experience) => {
+        const durationMonths = monthsBetween(experience.startDate, experience.endDate);
+        const duration = formatDuration(durationMonths, lang as DurationLang);
+        return (
+          <div class="entry">
+            <div class="entry-head">
+              <h3 class="job-title">{experience.role[lang]}</h3>
+              <a class="company" href={experience.link} target="_blank">{experience.company}</a>
+            </div>
+            <p class="date-line">{experience.time[lang]} ({duration})</p>
+            <p class="description" set:html={experience.description[lang]} />
+            <ul class="bullets">
+              {experience.bulletPoints.map((bulletPoint) => (
+                <li set:html={bulletPoint[lang]} />
+              ))}
+            </ul>
+            <p class="tools"><span class="label">{t('cv.tools')}:</span> {experience.technologies.join(', ')}.</p>
+          </div>
+        );
+      })}
+
+      <h2 class="section">{t('cv.education')}</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <p class="edu-degree"><span class="label">{profile.education.level[lang]}</span> <span class="degree-name">{profile.education.degree[lang]}</span></p>
+          <a class="company" href={profile.education.link} target="_blank">{profile.education.institution}</a>
+        </div>
+        <p class="date-line">
+          {formatMonthYear(profile.education.startDate, lang as DurationLang)} - {formatMonthYear(profile.education.endDate, lang as DurationLang)}
+        </p>
+        <p class="edu-gpa"><span class="label">{t('cv.gpa')}</span>: {gpaFormatted}</p>
+      </div>
+    </div>
+  </body>
+</html>

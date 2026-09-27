@@ -20,8 +20,8 @@ export const profile = {
       es: 'Ingeniería de Sistemas e Informática',
     },
     level: {
-      en: 'Bachelor',
-      es: 'Pregrado',
+      en: 'Bachelor,',
+      es: 'Grado en',
     },
     institution: 'UNAL',
     institutionName: 'Universidad Nacional de Colombia',

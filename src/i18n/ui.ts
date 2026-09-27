@@ -39,6 +39,10 @@ export const ui = {
     'skills.ci_cd': 'CI/CD',
     'skills.testing.description': 'Pruebas a cargo del desarrollador, con foco en tests automatizados unitarios, de integración y end-to-end.',
     'skills.tools': 'Herramientas',
+    'cv.education': 'Educación',
+    'cv.tools': 'Herramientas y Tecnologías',
+    'cv.gpa': 'Nota',
+    'cv.website': 'Sitio Web',
   },
   en: {
     'nav.about': 'About',
@@ -71,5 +75,9 @@ export const ui = {
     'skills.ci_cd': 'CI/CD',
     'skills.testing.description': 'Developer-driven, focused on automated unit, integration and end-to-end tests.',
     'skills.tools': 'Tools',
+    'cv.education': 'Education',
+    'cv.tools': 'Tools and Technologies',
+    'cv.gpa': 'GPA',
+    'cv.website': 'Website',
   },
 };

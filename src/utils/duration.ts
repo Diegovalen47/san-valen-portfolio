@@ -38,6 +38,22 @@ export function yearsSince(start: string, now: Date = new Date()) {
   return Math.round(monthsSince(start, now) / 12);
 }
 
+const monthNames = {
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  es: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+};
+
+/**
+ * Formats a "YYYY-MM" value as a capitalized month name and year,
+ * e.g. "February 2018" / "Febrero 2018".
+ */
+export function formatMonthYear(value: string, lang: DurationLang) {
+  const { year, month } = parseYearMonth(value);
+  const name = monthNames[lang][month - 1];
+  const capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+  return `${capitalized} ${year}`;
+}
+
 const units = {
   en: { year: ['yr', 'yrs'], month: ['mo', 'mos'] },
   es: { year: ['año', 'años'], month: ['mes', 'meses'] },
