@@ -36,6 +36,7 @@ src/
 
 - **Bilingual content is mandatory.** Every user-facing string exists in both `en` and `es`. Short UI strings live in `src/i18n/ui.ts`; section data (experiences, projects) lives inline in the section component as `{ en, es }` objects.
 - **Language resolution:** components call `getLangFromUrl(Astro.url)` and `useTranslations(lang)`; never hardcode a language.
+- **Default language and theme:** `/` redirects to the language saved by the picker (`localStorage.lang`), then the first supported `navigator.languages` entry, then English. The theme uses `localStorage.color-theme` if the toggle was used, otherwise `prefers-color-scheme`.
 - **Experience entries** (`src/components/sections/Experiencie.astro`) are ordered newest first and follow this shape: `link`, `logo` (company icon in `src/assets/companies/`), `title`, `time`, `startDate`, optional `endDate`, `description`, `bulletPoints`, `technologies`. Bullet points are one sentence: action verb + what was built + measurable impact.
 - **Job durations:** set `startDate` (and `endDate` for past jobs) as `"YYYY-MM"` and leave the duration out of `time`. It is computed LinkedIn-style (both start and end months count) with `src/utils/duration.ts`; entries without `endDate` count up to today.
 - **Dynamic dates:** the site is static, so values computed at build time go stale. Elements with `data-duration-start` / `data-years-since` are refreshed on the client by `refreshDynamicDates()` in `Layout.astro`. Reuse these attributes instead of adding new date logic.

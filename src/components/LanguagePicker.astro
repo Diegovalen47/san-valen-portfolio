@@ -16,7 +16,7 @@ const t = useTranslations(lang as keyof typeof languages)
 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700" id="language-dropdown-menu">
   <ul class="py-2 font-medium" role="none">
     <li>
-      <a href="/en/" class="transition-all duration-300 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+      <a href="/en/" data-lang="en" class="transition-all duration-300 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
         <div class="inline-flex items-center">
           <EnFlag />
           English (EN)
@@ -24,7 +24,7 @@ const t = useTranslations(lang as keyof typeof languages)
       </a>
     </li>
     <li>
-      <a href="/es/" class="transition-all duration-300 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+      <a href="/es/" data-lang="es" class="transition-all duration-300 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
         <div class="inline-flex items-center">
           <EsFlag />
           Español (ES)
@@ -33,3 +33,12 @@ const t = useTranslations(lang as keyof typeof languages)
     </li>
   </ul>
 </div>
+
+<script>
+  // Remember the explicit choice so the root page stops using the browser language
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      try { localStorage.setItem('lang', link.dataset.lang ?? 'en'); } catch {}
+    });
+  });
+</script>

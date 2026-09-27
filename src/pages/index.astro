@@ -6,5 +6,18 @@ const years = yearsSince(CAREER_START);
 ---
 
 <Layout title="Valentín Osorio's personal website" description={`Software Engineer with +${years} years of experience delivering product solutions across large, complex backend systems and frontend applications.`} keywords="Valentín Osorio, software engineer, backend, frontend, developer, python, typescript, java, node.js, vue, kubernetes, aws, systems design, portfolio" author="Valentín Osorio">
-	<meta http-equiv="refresh" content="0;url=/en/" />
+	<script is:inline>
+		// Pick the language: explicit choice from the picker first, then the browser preferences, then English
+		(() => {
+			const supported = ['en', 'es'];
+			let lang = null;
+			try { lang = localStorage.getItem('lang'); } catch {}
+			if (!supported.includes(lang)) {
+				const preferences = navigator.languages?.length ? navigator.languages : [navigator.language];
+				lang = preferences.map((l) => l?.slice(0, 2).toLowerCase()).find((l) => supported.includes(l)) ?? 'en';
+			}
+			location.replace(`/${lang}/`);
+		})();
+	</script>
+	<noscript><meta http-equiv="refresh" content="0;url=/en/" /></noscript>
 </Layout>
