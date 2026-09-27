@@ -1,0 +1,31 @@
+---
+import type { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  variant?: 'primary' | 'secondary';
+}
+
+const { variant = 'primary' } = Astro.props;
+
+const cvLinks = {
+  es: 'https://drive.google.com/file/d/1gAiy4ZsFAzBXUCADKHnB6ykiqMKHwqNc/view?usp=sharing',
+  en: 'https://drive.google.com/file/d/1hGeatZeKWrlqzbT_YOv2TuRxxykHrPqm/view?usp=sharing',
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang as keyof typeof languages);
+const cvLink = cvLinks[lang as keyof typeof cvLinks];
+
+const variants = {
+  primary: 'py-3 px-8 md:px-24 text-base text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900',
+  secondary: 'py-3 px-5 text-sm text-gray-900 focus:outline-none bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700',
+};
+---
+
+<a href={cvLink} target="_blank" rel="noopener noreferrer" class:list={['inline-flex justify-center items-center font-medium text-center rounded-2xl', variants[variant]]}>
+  {t('hero.actions.view_cv')}
+  <svg class="w-4 h-4 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
+  </svg>
+</a>

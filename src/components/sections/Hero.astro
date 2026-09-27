@@ -9,15 +9,10 @@ import SanValenMemoji from '../../assets/san_valen_memoji.webp';
 import SanValenMemojiMirror from '../../assets/san_valen_memoji_mirror.webp';
 import SetupImg from '../../assets/setup-dark.webp';
 import { CAREER_START, yearsSince } from '../../utils/duration';
-
-const cvLangMap = {
-  'es': 'https://drive.google.com/file/d/1gAiy4ZsFAzBXUCADKHnB6ykiqMKHwqNc/view?usp=sharing',
-  'en': 'https://drive.google.com/file/d/1hGeatZeKWrlqzbT_YOv2TuRxxykHrPqm/view?usp=sharing',
-}
+import ViewCvButton from '../ViewCvButton.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
-const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
 
 const [experienceBefore, experienceAfter] = t('hero.experience').split('{years}');
 ---
@@ -37,20 +32,15 @@ const [experienceBefore, experienceAfter] = t('hero.experience').split('{years}'
         <span>{t('hero.description')}</span>
       </p>
       <div class="flex flex-col justify-start md:flex-row space-y-0 text-right gap-3 mb-6 fade-in-element animation-delay-1">
-        <a href={curriculumLink} class="inline-flex justify-center items-center py-3 px-8 md:px-24 text-base font-medium text-center text-white rounded-2xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-            {t('hero.actions.view_cv')}
-            <svg class="w-4 h-4 ms-2 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
+        <a href="#experience" class="inline-flex justify-center items-center py-3 px-8 md:px-24 text-base font-medium text-center text-white rounded-2xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+          {t('hero.actions.contact_me')}
+          <div class="animate-bounce transition-all duration-300 ml-1">
+            <svg class="w-3.5 h-3.5 rotate-90 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
+          </div>
         </a>
-        <a href="#experience" class="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-2xl border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-            {t('hero.actions.contact_me')}
-            <div class="animate-bounce transition-all duration-300 ml-1">
-              <svg class="w-3.5 h-3.5 ml rotate-90 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-            </div>
-          </a>
+        <ViewCvButton variant="secondary" />
       </div>
       <p class="text-center md:text-left text-balance text-gray-500 dark:text-gray-400 mb-2 fade-in-element animation-delay-1">
         <span class="inline-block align-middle mr-2 -mt-1"><GraduationCap currentColor="gray" /></span>{t('hero.degree')}
