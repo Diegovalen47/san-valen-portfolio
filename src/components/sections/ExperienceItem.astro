@@ -23,7 +23,7 @@ const { link, title, time, startDate, endDate, description, bulletPoints, techno
       <h3 set:html={title[lang]}></h3>
       <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
         <LinkIcon />
-        <span class="sr-only">Link to the project {title[lang]}</span>
+        <span class="sr-only">Link to {title[lang]}</span>
       </div>
     </a>
   ) : (
