@@ -52,10 +52,9 @@ const [experienceBefore, experienceAfter] = t('hero.experience').split('{years}'
             </div>
           </a>
       </div>
-      <div class="flex flex-row gap-2 items-center md:justify-start justify-center text-gray-500 dark:text-gray-400 mb-2 fade-in-element animation-delay-1">
-        <span class="shrink-0"><GraduationCap currentColor="gray" /></span>
-        <span class="text-left text-balance">{t('hero.degree')}</span>
-      </div>
+      <p class="text-center md:text-left text-balance text-gray-500 dark:text-gray-400 mb-2 fade-in-element animation-delay-1">
+        <span class="inline-block align-middle mr-2 -mt-1"><GraduationCap currentColor="gray" /></span>{t('hero.degree')}
+      </p>
       <div class="flex flex-row gap-2 md:items-start items-center md:justify-start justify-center text-gray-500 dark:text-gray-400 mb-6 text-right fade-in-element animation-delay-1">
         <Location currentColor="gray" />
         <span>Medellín, Colombia</span>
