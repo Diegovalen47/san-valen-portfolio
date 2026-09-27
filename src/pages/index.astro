@@ -1,7 +1,10 @@
 ---
+import { CAREER_START, yearsSince } from '../utils/duration';
 import Layout from '../layouts/Layout.astro';
+
+const years = yearsSince(CAREER_START);
 ---
 
-<Layout title="Valentín Osorio's personal website" description="Software Engineer with +3 years of experience. Specialized in Frontend with Vue.js and React.js. Expert in creating unique applications from scratch to production." keywords="Valentín Osorio, frontend, developer, software, engineer, javascript, typescript, react, vue, astro, tailwind, css, html, web, application, portfolio, projects, skills, about, contact" author="Valentín Osorio">
+<Layout title="Valentín Osorio's personal website" description={`Software Engineer with +${years} years of experience delivering product solutions across large, complex backend systems and frontend applications.`} keywords="Valentín Osorio, software engineer, backend, frontend, developer, python, typescript, java, node.js, vue, kubernetes, aws, systems design, portfolio" author="Valentín Osorio">
 	<meta http-equiv="refresh" content="0;url=/en/" />
 </Layout>

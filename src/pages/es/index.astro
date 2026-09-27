@@ -1,4 +1,5 @@
 ---
+import { CAREER_START, yearsSince } from '../../utils/duration';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import Experiencie from '../../components/sections/Experiencie.astro';
@@ -6,9 +7,11 @@ import Projects from '../../components/sections/Projects.astro';
 import Skills from '../../components/sections/Skills.astro';
 import About from '../../components/sections/About.astro';
 import Contact from '../../components/sections/Contact.astro';
+
+const years = yearsSince(CAREER_START);
 ---
 
-<Layout title="Portafolio de Valentín Osorio" description="Ingeniero de Software con +3 años de experiencia. Especializado en Frontend con Vue.js y React.js. Experto en crear aplicaciones únicas desde cero hasta producción." keywords="Valentín Osorio, frontend, developer, software, engineer, javascript, typescript, react, vue, astro, tailwind, css, html, web, application, portfolio, projects, skills, about, contact" author="Valentín Osorio">
+<Layout title="Portafolio de Valentín Osorio" description={`Ingeniero de Software con +${years} años de experiencia entregando soluciones de producto en sistemas backend complejos y de gran escala, y aplicaciones frontend.`} keywords="Valentín Osorio, software engineer, backend, frontend, developer, python, typescript, java, node.js, vue, kubernetes, aws, systems design, portfolio" author="Valentín Osorio">
 	<main>
     <Hero />
     <Experiencie />
