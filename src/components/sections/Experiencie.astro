@@ -2,6 +2,9 @@
 import ExperienceItem from './ExperienceItem.astro';
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import LinqiaLogo from '../../assets/companies/linqia.png';
+import ApsideLogo from '../../assets/companies/apside.png';
+import UnergyLogo from '../../assets/companies/unergy.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
@@ -9,6 +12,7 @@ const t = useTranslations(lang as keyof typeof languages)
 const experiences = [
 {
     link: "https://www.linqia.com",
+    logo: LinqiaLogo,
     title: {
       en: "Software Engineer - Linqia",
       es: "Ingeniero de Software - Linqia",
@@ -40,6 +44,7 @@ const experiences = [
   },
   {
     link: "https://apside.cl/",
+    logo: ApsideLogo,
     title: {
       en: "Software Developer - Apside",
       es: "Desarrollador de Software - Apside",
@@ -68,6 +73,7 @@ const experiences = [
   },
   {
     link: "https://unergy.io/",
+    logo: UnergyLogo,
     title: {
       en: "Frontend Developer - Unergy",
       es: "Desarrollador Frontend - Unergy",

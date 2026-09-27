@@ -9,7 +9,7 @@ import { formatDuration, monthsBetween, type DurationLang } from "../../utils/du
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 
-const { link, title, time, startDate, endDate, description, bulletPoints, technologies } = Astro.props;
+const { link, logo, title, time, startDate, endDate, description, bulletPoints, technologies } = Astro.props;
 ---
 
 <li class="mb-10 ms-10">
@@ -20,6 +20,7 @@ const { link, title, time, startDate, endDate, description, bulletPoints, techno
   </span>
   {link ? (
     <a href={link} target="_blank" class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white flex flex-row gap-2 items-center">
+      {logo && <img src={logo.src} alt="" width="28" height="28" class="w-7 h-7 rounded-md object-contain" loading="lazy" />}
       <h3 set:html={title[lang]}></h3>
       <div class="text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 px-1 text-center inline-flex items-center gap-1 dark:border-blue-500 dark:focus:ring-blue-800 hover:bg-gray-300 dark:hover:bg-gray-700">
         <LinkIcon />
@@ -27,7 +28,8 @@ const { link, title, time, startDate, endDate, description, bulletPoints, techno
       </div>
     </a>
   ) : (
-    <h3 class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white">
+    <h3 class="mb-1 text-2xl font-semibold text-gray-900 dark:text-white flex flex-row gap-2 items-center">
+      {logo && <img src={logo.src} alt="" width="28" height="28" class="w-7 h-7 rounded-md object-contain" loading="lazy" />}
       {title[lang]}
     </h3>
   )}
