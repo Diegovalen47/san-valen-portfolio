@@ -1,0 +1,249 @@
+---
+// Single, page-wide modal that previews the built CV PDF (see scripts/generate-cv.mjs)
+// with PDF.js. Every <ViewCvButton /> instance on the page opens this same dialog.
+import { profile } from '../data/profile';
+import type { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang as keyof typeof languages);
+
+const pdfUrls: Record<'en' | 'es', string> = {
+  en: '/cv/Valentin_Osorio_CV_EN.pdf',
+  es: '/cv/Valentin_Osorio_CV_ES.pdf',
+};
+const pdfUrl = pdfUrls[lang as 'en' | 'es'];
+
+// "Curriculum Vitae — {name}" split around the placeholder, same pattern as hero.experience.
+const [titleBefore, titleAfter] = t('cv.viewer.title').split('{name}');
+---
+
+<dialog id="cv-viewer" class="cv-viewer" data-pdf-url={pdfUrl} aria-labelledby="cv-viewer-title">
+  <header class="flex items-center justify-between gap-3 px-4 py-3 border-b border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700">
+    <h2 id="cv-viewer-title" class="text-base md:text-lg font-semibold text-gray-900 dark:text-white truncate">
+      {titleBefore}{profile.name}{titleAfter}
+    </h2>
+    <div class="flex items-center gap-2 shrink-0">
+      <a
+        id="cv-viewer-download"
+        href={pdfUrl}
+        download
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 rounded-lg"
+      >
+        {t('cv.viewer.download')}
+      </a>
+      <button
+        type="button"
+        id="cv-viewer-close"
+        aria-label={t('cv.viewer.close')}
+        class="inline-flex items-center justify-center w-9 h-9 text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700"
+      >
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <div id="cv-viewer-body" class="cv-viewer-body bg-gray-100 dark:bg-gray-900">
+    <p id="cv-viewer-loading" class="cv-viewer-state text-gray-600 dark:text-gray-300">
+      {t('cv.viewer.loading')}
+    </p>
+    <div id="cv-viewer-error" class="cv-viewer-state flex-col gap-3" hidden>
+      <p class="text-gray-600 dark:text-gray-300">{t('cv.viewer.error')}</p>
+      <a href={pdfUrl} target="_blank" rel="noopener noreferrer" class="text-blue-700 dark:text-blue-400 underline">
+        {t('cv.viewer.open_pdf')}
+      </a>
+    </div>
+    <div id="cv-viewer-pages" class="cv-viewer-pages"></div>
+  </div>
+</dialog>
+
+<style is:global>
+  .cv-viewer {
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    padding: 0;
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+
+  .cv-viewer[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cv-viewer::backdrop {
+    background: rgba(17, 24, 39, 0.6);
+  }
+
+  .cv-viewer-body {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .cv-viewer-state {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  /* The `hidden` attribute has the same specificity as `.cv-viewer-state`'s `display: flex`
+     above; without this rule the later class declaration would win and keep it visible. */
+  .cv-viewer-state[hidden] {
+    display: none;
+  }
+
+  .cv-viewer-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .cv-viewer-page {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 767px) {
+    .cv-viewer {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      inset: 0;
+      border-radius: 0;
+    }
+  }
+</style>
+
+<script>
+  // Lazy-loaded PDF.js viewer shared by every "View CV" button on the page.
+  // The document and worker are only fetched the first time the dialog opens.
+  const dialog = document.getElementById('cv-viewer') as HTMLDialogElement | null;
+  const pagesContainer = document.getElementById('cv-viewer-pages');
+  const loadingState = document.getElementById('cv-viewer-loading');
+  const errorState = document.getElementById('cv-viewer-error');
+  const closeButton = document.getElementById('cv-viewer-close');
+
+  let lastFocusedElement: HTMLElement | null = null;
+  let cachedDoc: import('pdfjs-dist').PDFDocumentProxy | null = null;
+  let loadPromise: Promise<import('pdfjs-dist').PDFDocumentProxy> | null = null;
+  let renderGeneration = 0;
+  let resizeTimeout: number | undefined;
+
+  function getPdfUrl(): string {
+    return dialog?.dataset.pdfUrl ?? '';
+  }
+
+  /** Imports pdfjs-dist and its worker only once, and caches the parsed document between opens. */
+  async function loadPdfDocument() {
+    if (cachedDoc) return cachedDoc;
+    if (!loadPromise) {
+      loadPromise = (async () => {
+        const [pdfjsLib, workerUrl] = await Promise.all([
+          import('pdfjs-dist'),
+          import('pdfjs-dist/build/pdf.worker.min.mjs?url').then((mod) => mod.default),
+        ]);
+        pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
+        const doc = await pdfjsLib.getDocument({ url: getPdfUrl() }).promise;
+        cachedDoc = doc;
+        return doc;
+      })();
+    }
+    return loadPromise;
+  }
+
+  /** Renders every page to a canvas fitted to the current body width, sharpened for the device pixel ratio. */
+  async function renderPages() {
+    if (!pagesContainer) return;
+    const doc = await loadPdfDocument();
+    const generation = ++renderGeneration;
+    const dpr = window.devicePixelRatio || 1;
+    const availableWidth = pagesContainer.clientWidth || pagesContainer.getBoundingClientRect().width;
+    const canvases: HTMLCanvasElement[] = [];
+
+    for (let pageNumber = 1; pageNumber <= doc.numPages; pageNumber += 1) {
+      if (generation !== renderGeneration) return; // A newer render (resize/reopen) superseded this one.
+
+      const page = await doc.getPage(pageNumber);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const fitScale = availableWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale: fitScale * dpr });
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'cv-viewer-page';
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      canvas.style.width = `${viewport.width / dpr}px`;
+      canvas.style.height = `${viewport.height / dpr}px`;
+
+      if (generation !== renderGeneration) return;
+      await page.render({ canvas, viewport }).promise;
+      canvases.push(canvas);
+    }
+
+    if (generation === renderGeneration) {
+      pagesContainer.replaceChildren(...canvases);
+    }
+  }
+
+  async function openViewer(trigger: HTMLElement) {
+    if (!dialog) return;
+    lastFocusedElement = trigger;
+    loadingState?.removeAttribute('hidden');
+    errorState?.setAttribute('hidden', '');
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+
+    try {
+      await renderPages();
+      loadingState?.setAttribute('hidden', '');
+    } catch (error) {
+      console.error('Failed to render CV preview', error);
+      loadingState?.setAttribute('hidden', '');
+      errorState?.removeAttribute('hidden');
+    }
+  }
+
+  function closeViewer() {
+    if (dialog?.open) dialog.close();
+  }
+
+  function handleResize() {
+    if (!dialog?.open) return;
+    window.clearTimeout(resizeTimeout);
+    resizeTimeout = window.setTimeout(() => {
+      renderPages().catch((error) => console.error('Failed to re-render CV preview', error));
+    }, 200);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-cv-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', () => openViewer(trigger));
+  });
+
+  closeButton?.addEventListener('click', closeViewer);
+
+  // Clicking the backdrop (the dialog element itself, outside its content) closes it.
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) closeViewer();
+  });
+
+  // Fires on Esc, the close button and backdrop clicks alike.
+  dialog?.addEventListener('close', () => {
+    document.body.style.overflow = '';
+    lastFocusedElement?.focus();
+  });
+
+  window.addEventListener('resize', handleResize);
+</script>

@@ -3,6 +3,7 @@ import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import { getLangFromUrl } from '../i18n/utils';
 import CustomCursor from '../components/CustomCursor.astro';
+import CvViewer from '../components/CvViewer.astro';
 
 interface Props {
 	title: string;
@@ -52,6 +53,7 @@ const lang = getLangFromUrl(Astro.url);
     <Navbar />
 		<slot />
     <Footer />
+    <CvViewer />
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
     <script>
       // Dates are rendered at build time; refresh them so they stay current between deploys
