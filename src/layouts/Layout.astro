@@ -53,5 +53,10 @@ const lang = getLangFromUrl(Astro.url);
 		<slot />
     <Footer />
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script>
+      // Dates are rendered at build time; refresh them so they stay current between deploys
+      import { refreshDynamicDates } from '../utils/duration';
+      refreshDynamicDates();
+    </script>
 	</body>
 </html>

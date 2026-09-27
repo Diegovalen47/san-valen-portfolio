@@ -14,15 +14,29 @@ const experiences = [
       es: "Ingeniero de Software - Linqia",
     },
     time: {
-      en: "June 2025 - Present (1 month)",
-      es: "Junio 2025 - Presente (1 mes)",
+      en: "June 2025 - Present",
+      es: "Junio 2025 - Presente",
     },
+    startDate: "2025-06",
     description: {
-      en: "",
-      es: "",
+      en: "Responsible for designing, building and maintaining backend services and data pipelines for an influencer marketing platform, powering creator discovery, qualification and campaign analytics across Instagram, TikTok and YouTube.",
+      es: "Responsable de diseñar, construir y mantener servicios backend y pipelines de datos para una plataforma de marketing de influencers, impulsando el descubrimiento, la calificación y la analítica de campañas de creadores en Instagram, TikTok y YouTube.",
     },
-    bulletPoints: [],
-    technologies: ["Vue.js", "FastAPI", "JavaScript", "TypeScript", "Python", "AWS", "Systems Design"],
+    bulletPoints: [
+      {
+        en: "Designed and built a Node.js service that consolidated 3 legacy discovery services into one, backed by integration tests that guaranteed identical results and feature flags that enabled the controlled release of the Video Search project.",
+        es: "Diseñé y construí un servicio en Node.js que consolidó 3 servicios legacy de descubrimiento en uno solo, respaldado por pruebas de integración que garantizaron resultados idénticos y feature flags que permitieron el lanzamiento controlado del proyecto Video Search.",
+      },
+      {
+        en: "Refactored creator qualification rules across Instagram, TikTok and YouTube into individually testable criteria with an auditable history, eliminating the wrongful disqualification of creators active in campaigns.",
+        es: "Refactoricé las reglas de calificación de creadores en Instagram, TikTok y YouTube en criterios testeables de forma individual con un historial auditable, eliminando la descalificación errónea de creadores activos en campañas.",
+      },
+      {
+        en: "Restored the campaign analytics pipeline in less than 2 days by building an Instagram scraper from scratch on Kubernetes, using retries, caching and provider fallbacks to keep proxy costs under control.",
+        es: "Restablecí el pipeline de analítica de campañas en menos de 2 días construyendo desde cero un scraper de Instagram en Kubernetes, usando reintentos, caché y proveedores de respaldo para mantener controlados los costos de proxy.",
+      },
+    ],
+    technologies: ["Vue.js", "FastAPI", "JavaScript", "TypeScript", "Python", "AWS", "Systems Design", "Kubernetes", "Playwright", "Java"],
   },
   {
     link: "https://apside.cl/",
