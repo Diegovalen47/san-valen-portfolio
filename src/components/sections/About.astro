@@ -2,9 +2,11 @@
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import SanValenJsPic from '../../assets/sanvalenjs_pic.webp';
+import { CAREER_START, yearsSince } from '../../utils/duration';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
+const [introBefore, introAfter] = t('about.info_1').split('{years}');
 ---
 
 <section id="about" class="bg-white dark:bg-gray-900 w-full py-14">
@@ -12,7 +14,7 @@ const t = useTranslations(lang as keyof typeof languages)
   <article class="bg-white dark:bg-gray-900 py-8 px-8 mx-auto max-w-screen-xl about-article">
     <img src={SanValenJsPic.src} alt="Valentín Osorio" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full border-4 border-gray-300 dark:border-gray-600  about-img">
     <p class="text-gray-700 dark:text-white text-lg mb-5">
-      {t('about.info_1')}
+      {introBefore}<span data-years-since={CAREER_START}>{yearsSince(CAREER_START)}</span>{introAfter}
     </p>
     <p class="text-gray-700 dark:text-white text-lg mb-5">
       {t('about.info_2')}

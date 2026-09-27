@@ -1,5 +1,8 @@
 export type DurationLang = 'en' | 'es';
 
+/** First month of professional experience, used for the "+N years" copy. */
+export const CAREER_START = '2022-10';
+
 /**
  * Parses a "YYYY-MM" string into a year and a 1-based month.
  */
