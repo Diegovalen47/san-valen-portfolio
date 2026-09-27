@@ -39,7 +39,7 @@ src/
 - **Experience entries** (`src/components/sections/Experiencie.astro`) are ordered newest first and follow this shape: `link`, `title`, `time`, `startDate`, optional `endDate`, `description`, `bulletPoints`, `technologies`. Bullet points are one sentence: action verb + what was built + measurable impact.
 - **Job durations:** set `startDate` (and `endDate` for past jobs) as `"YYYY-MM"` and leave the duration out of `time`. It is computed LinkedIn-style (both start and end months count) with `src/utils/duration.ts`; entries without `endDate` count up to today.
 - **Dynamic dates:** the site is static, so values computed at build time go stale. Elements with `data-duration-start` / `data-years-since` are refreshed on the client by `refreshDynamicDates()` in `Layout.astro`. Reuse these attributes instead of adding new date logic.
-- **Technology stack** (`src/components/sections/SkillsList.astro`) is an ordered list of categories (Languages, Frontend, Backend, Database, DevOps & Cloud, Version Control, Testing, Tools), each with a translated `title`, optional `description` and its `skills`. Each skill needs a colored SVG in `src/assets/skills/` (devicon originals work well).
+- **Technology stack** (`src/components/sections/SkillsList.astro`) is an ordered list of categories (Languages, Frontend, Backend, Database, DevOps & Cloud, Testing, CI/CD, Tools), each with a translated `title`, optional `description` and its `skills`. Each skill needs a colored SVG in `src/assets/skills/` (devicon originals work well).
 - **Styling:** Tailwind utility classes with `dark:` variants for every color. Component-specific CSS goes in a scoped `<style>` block.
 - Code, comments and commit messages in English.
 

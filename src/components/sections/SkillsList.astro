@@ -31,6 +31,10 @@ import CodeDeployLogo from '../../assets/skills/aws-codedeploy.svg';
 import PytestLogo from '../../assets/skills/pytest.svg';
 import ClaudeLogo from '../../assets/skills/claude.svg';
 import CodexLogo from '../../assets/skills/codex.svg';
+import VSCodeLogo from '../../assets/skills/vscode.svg';
+import DataGripLogo from '../../assets/skills/datagrip.svg';
+import DBeaverLogo from '../../assets/skills/dbeaver.svg';
+import ExcalidrawLogo from '../../assets/skills/excalidraw.svg';
 
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -107,12 +111,6 @@ const skillsCategories: SkillsCategory[] = [
     ],
   },
   {
-    title: t('skills.version_control'),
-    skills: [
-      { name: 'Git', logo: GitLogo },
-    ],
-  },
-  {
     title: t('skills.ci_cd'),
     skills: [
       { name: 'Jenkins', logo: JenkinsLogo },
@@ -126,8 +124,13 @@ const skillsCategories: SkillsCategory[] = [
     skills: [
       { name: 'Claude Code', logo: ClaudeLogo },
       { name: 'Codex', logo: CodexLogo, darkClass: 'dark:invert' },
+      { name: 'Git', logo: GitLogo },
+      { name: 'VS Code', logo: VSCodeLogo },
+      { name: 'DataGrip', logo: DataGripLogo },
+      { name: 'DBeaver', logo: DBeaverLogo },
       { name: 'Postman', logo: PostmanLogo },
       { name: 'Figma', logo: FigmaLogo },
+      { name: 'Excalidraw', logo: ExcalidrawLogo },
     ],
   },
 ];
