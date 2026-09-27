@@ -7,6 +7,7 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import SanValenMemoji from '../../assets/san_valen_memoji.webp';
 import SanValenMemojiMirror from '../../assets/san_valen_memoji_mirror.webp';
 import SetupImg from '../../assets/setup-dark.webp';
+import { yearsSince } from '../../utils/duration';
 
 const cvLangMap = {
   'es': 'https://drive.google.com/file/d/1gAiy4ZsFAzBXUCADKHnB6ykiqMKHwqNc/view?usp=sharing',
@@ -16,6 +17,9 @@ const cvLangMap = {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof languages)
 const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
+
+const CAREER_START = '2022-10';
+const [experienceBefore, experienceAfter] = t('hero.experience').split('{years}');
 ---
 
 <section class="bg-white dark:bg-gray-900 pt-14 hero-section">
@@ -28,7 +32,7 @@ const curriculumLink = cvLangMap[lang as keyof typeof cvLangMap];
     <div class="w-full md:w-9/12 lg:w-7/12 flex flex-col">
       <h1 class="text-center self-center md:self-start md:text-left mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white typewriter max-w-fit z-10">{t('hero.title')}.</h1>
       <p class="text-center md:text-left mb-6 text-base sm:text-xl md:text-2xl text-gray-500 lg:text-xl dark:text-gray-400 md:max-w-[95%] fade-in-element animation-delay-1">
-        <span class="font-bold">{t('hero.experience')}.</span>
+        <span class="font-bold">{experienceBefore}<span data-years-since={CAREER_START}>{yearsSince(CAREER_START)}</span>{experienceAfter}.</span>
         <span class="text-yellow-700 dark:text-yellow-500 font-bold">{t('hero.role')}.</span>
         <span>{t('hero.description')}</span>
       </p>
