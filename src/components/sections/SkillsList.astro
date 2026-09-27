@@ -2,28 +2,26 @@
 import VueLogo from '../../assets/skills/vuejs.svg';
 import ReactLogo from '../../assets/skills/react.svg';
 import TypescriptLogo from '../../assets/skills/typescript.svg';
-import AstroLogo from '../../assets/skills/astro.svg';
 import HtmlLogo from '../../assets/skills/html5.svg';
 import CssLogo from '../../assets/skills/css3.svg';
 import JavascriptLogo from '../../assets/skills/js.svg';
-import TailwindLogo from '../../assets/skills/tailwindcss.svg';
 import AWSLogo from '../../assets/skills/aws.svg';
 import DockerLogo from '../../assets/skills/docker.svg';
 import GitLogo from '../../assets/skills/git.svg';
-import NestLogo from '../../assets/skills/nestjs.svg';
 import PostgresLogo from '../../assets/skills/postgresql.svg';
 import PythonLogo from '../../assets/skills/python.svg';
 import SassLogo from '../../assets/skills/sass.svg';
 import VitestLogo from '../../assets/skills/vitest.svg';
-import NuxtLogo from '../../assets/skills/nuxtjs.svg';
 import NpmLogo from '../../assets/skills/npm2.svg';
 import FigmaLogo from '../../assets/skills/figma.svg';
 import GCloudLogo from '../../assets/skills/gcloud.svg';
 import FastAPILogo from '../../assets/skills/fastapi.svg';
-import TantStackQueryLogo from '../../assets/skills/reactquery.svg';
-import ChakraUILogo from '../../assets/skills/chakraui.svg';
 import PostmanLogo from '../../assets/skills/postman.svg';
 import CypressLogo from '../../assets/skills/cypress.svg';
+import KubernetesLogo from '../../assets/skills/kubernetes.svg';
+import JavaLogo from '../../assets/skills/java.svg';
+import NodeLogo from '../../assets/skills/nodejs.svg';
+import PlaywrightLogo from '../../assets/skills/playwright.svg';
 
 import type { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -41,22 +39,19 @@ const skillsCategories = {
     { name: 'HTML', logo: HtmlLogo },
     { name: 'CSS', logo: CssLogo },
     { name: 'Sass', logo: SassLogo },
-    { name: 'Tailwind', logo: TailwindLogo },
-    { name: 'Astro', logo: AstroLogo },
-    { name: 'Nuxt.js', logo: NuxtLogo },
-    { name: 'TantStack Query', logo: TantStackQueryLogo },
-    { name: 'Chakra UI', logo: ChakraUILogo },
   ],
   backend: [
-    { name: 'Nest.js', logo: NestLogo },
+    { name: 'Node.js', logo: NodeLogo },
     { name: 'FastAPI', logo: FastAPILogo },
     { name: 'Python', logo: PythonLogo },
+    { name: 'Java', logo: JavaLogo },
     { name: 'PostgreSQL', logo: PostgresLogo },
   ],
   cloud: [
     { name: 'AWS', logo: AWSLogo },
     { name: 'GCloud', logo: GCloudLogo },
     { name: 'Docker', logo: DockerLogo },
+    { name: 'Kubernetes', logo: KubernetesLogo },
   ],
   tools: [
     { name: 'Git', logo: GitLogo },
@@ -65,6 +60,7 @@ const skillsCategories = {
     { name: 'Vitest', logo: VitestLogo },
     { name: 'Postman', logo: PostmanLogo },
     { name: 'Cypress', logo: CypressLogo },
+    { name: 'Playwright', logo: PlaywrightLogo },
   ]
 };
 
