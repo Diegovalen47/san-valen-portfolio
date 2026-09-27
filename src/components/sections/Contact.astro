@@ -1,6 +1,5 @@
 ---
 import type { languages } from '../../i18n/ui';
-import ViewCvButton from '../ViewCvButton.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import CopyIcon from '../icons/CopyIcon.astro';
 import Github from '../icons/Github.astro';
@@ -53,8 +52,5 @@ const copyToClipboard = (str: string) => {
         <Linkedin currentColor="gray" />
       </a>
     </div>
-  </div>
-  <div class="flex justify-center px-4 pt-6">
-    <ViewCvButton />
   </div>
 </section>
