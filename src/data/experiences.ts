@@ -77,7 +77,7 @@ export const experiences: Experience[] = [
         es: "Implementé descuentos por campaña en el flujo de cotización, manteniendo un buen rendimiento mediante caché y estructuras de datos eficientes.",
       },
     ],
-    technologies: ["Vue.js", "FastAPI", "AWS", "AWS CodeBuild", "AWS CodeDeploy", "Docker", "Python", "TypeScript", "Sass", "TailwindCSS", "Vistest", "Cypress", "Docker"],
+    technologies: ["Vue.js", "FastAPI", "AWS", "AWS CodeBuild", "AWS CodeDeploy", "Docker", "Python", "TypeScript", "Sass", "TailwindCSS", "Vitest", "Cypress"],
   },
   {
     link: "https://unergy.io/",
