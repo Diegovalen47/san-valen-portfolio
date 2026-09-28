@@ -100,7 +100,6 @@ export const skillsCategories: SkillsCategory[] = [
   },
   {
     titleKey: 'skills.testing',
-    descriptionKey: 'skills.testing.description',
     skills: [
       { name: 'Pytest', logo: PytestLogo },
       { name: 'Vitest', logo: VitestLogo },
