@@ -1,7 +1,6 @@
 ---
 // Single, page-wide modal that previews the built CV PDF (see scripts/generate-cv.mjs)
 // with PDF.js. Every <ViewCvButton /> instance on the page opens this same dialog.
-import { profile } from '../data/profile';
 import type { languages } from '../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -15,13 +14,12 @@ const pdfUrls: Record<'en' | 'es', string> = {
 const pdfUrl = pdfUrls[lang as 'en' | 'es'];
 
 // "Curriculum Vitae — {name}" split around the placeholder, same pattern as hero.experience.
-const [titleBefore, titleAfter] = t('cv.viewer.title').split('{name}');
 ---
 
 <dialog id="cv-viewer" class="cv-viewer" data-pdf-url={pdfUrl} aria-labelledby="cv-viewer-title">
   <header class="flex items-center justify-between gap-3 px-4 py-3 border-b border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700">
     <h2 id="cv-viewer-title" class="text-base md:text-lg font-semibold text-gray-900 dark:text-white truncate">
-      {titleBefore}{profile.name}{titleAfter}
+      {t('cv.viewer.title')}
     </h2>
     <div class="flex items-center gap-2 shrink-0">
       <a
