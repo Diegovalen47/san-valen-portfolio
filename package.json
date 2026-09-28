@@ -24,5 +24,8 @@
   "devDependencies": {
     "daisyui": "^4.12.14",
     "playwright": "^1.63.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

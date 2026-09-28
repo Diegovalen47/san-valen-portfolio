@@ -4,7 +4,7 @@ Personal portfolio of Valentín Osorio. Static site built with Astro 5, Tailwind
 
 ## Commands
 
-Package manager: **pnpm** (`pnpm-lock.yaml`).
+Package manager: **pnpm** (`pnpm-lock.yaml`). Node **22** (`.nvmrc`, also read by Netlify); Playwright needs Node 20+.
 
 | Task | Command | Notes |
 | --- | --- | --- |
